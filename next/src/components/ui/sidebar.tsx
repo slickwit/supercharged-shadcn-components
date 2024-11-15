@@ -182,7 +182,7 @@ const Sidebar = React.forwardRef<
 			{/* This is what handles the sidebar gap on desktop */}
 			<SidebarTrigger
 				className={cn(
-					"top-0 bg-sidebar rounded-full fixed z-[50] transition-[left,rotate] duration-200",
+					"top-4 bg-sidebar rounded-full fixed z-[60] transition-[left,rotate] duration-200",
 					open ? "rotate-0" : "rotate-180",
 				)}
 				style={{
@@ -226,7 +226,7 @@ Sidebar.displayName = "Sidebar";
 
 const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.ComponentProps<typeof Button>>(
 	({ className, onClick, children, ...props }, ref) => {
-		const { open, toggleSidebar } = useSidebar();
+		const { toggleSidebar } = useSidebar();
 
 		return (
 			<Button
@@ -234,7 +234,7 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
 				data-sidebar="trigger"
 				variant="outline"
 				size="icon"
-				className={cn("size-7 lg:size-8 mt-1.5", className)}
+				className={cn("size-7 lg:size-8", className)}
 				onClick={(event) => {
 					onClick?.(event);
 					toggleSidebar();
