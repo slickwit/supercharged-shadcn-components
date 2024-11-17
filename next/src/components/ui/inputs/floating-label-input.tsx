@@ -10,7 +10,7 @@ const FloatingInput = React.forwardRef<HTMLInputElement, CustomInputProps>(({ cl
 FloatingInput.displayName = "FloatingInput";
 
 const floatingLabelVariant = cva(
-	"cursor-text absolute start-2 z-10 origin-[0] transform duration-300 peer-placeholder-shown:start-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:text-common font-normal peer-placeholder-shown:translate-x-1.5 leading-4 text-xs -translate-y-4 top-2 translate-x-1.5 peer-focus:top-2 peer-focus:text-xs peer-focus:-translate-y-4",
+	"cursor-text absolute start-2 z-10 transform duration-300 peer-placeholder-shown:start-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:text-common font-normal peer-placeholder-shown:translate-x-1.5 leading-4 text-xs -translate-y-4 top-2 translate-x-1.5 peer-focus:top-2 peer-focus:text-xs peer-focus:-translate-y-4",
 	{
 		variants: {
 			size: {
