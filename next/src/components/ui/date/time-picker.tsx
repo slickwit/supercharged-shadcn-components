@@ -252,7 +252,7 @@ export const TimePeriodSelect = React.forwardRef<HTMLButtonElement, PeriodSelect
 				<Button
 					variant="outline"
 					onClick={handleClick}
-					className="text-common focus:ring-offset-0 focus:ring-2 ring-offset-background focus:ring-common h-14"
+					className="text-common focus:ring-offset-0 focus:ring-2 ring-offset-background focus:ring-common h-9"
 					type="button"
 					ref={ref}
 					onKeyDown={handleKeyDown}>

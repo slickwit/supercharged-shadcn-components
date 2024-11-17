@@ -14,9 +14,9 @@ export { default as RHFRadioGroup } from "./rhf-radio-group";
 //
 export { default as RHFCombobox } from "./rhf-combobox";
 
-// //
-// export { default as RHFDatePicker } from "./rhf-date-picker";
-// export { default as RHFTimePicker } from "./rhf-time-picker";
+//
+export { default as RHFDatePicker } from "./rhf-date-picker";
+export { default as RHFTimePicker } from "./rhf-time-picker";
 
 // //
 // export { RHFUpload } from "./rhf-upload";
