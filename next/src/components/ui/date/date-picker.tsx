@@ -24,7 +24,7 @@ export function DatePicker({ date, onSelect, btnProps, calendarProps, label = "P
 		<Popover>
 			<PopoverTrigger asChild>
 				<FloatingLabelButon
-					variant="outlined"
+					variant="outline"
 					label={label}
 					value={!!date ? format(date, "PPP") : ""}
 					{...btnProps}

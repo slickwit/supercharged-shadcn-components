@@ -8,9 +8,8 @@ import { type VariantProps } from "class-variance-authority";
 // ----------------------------------------------------------------------
 
 export interface LinkButtonProps extends Omit<React.LinkHTMLAttributes<HTMLAnchorElement>, "color">, VariantProps<typeof buttonVariants> {
-	asChild?: boolean;
 	ring?: boolean;
-	variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "contained" | "outlined";
+	variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "contained" | "outline";
 	color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
 	size?: "default" | "sm" | "md" | "lg" | "icon";
 	startIcon?: React.ReactNode;
@@ -19,7 +18,7 @@ export interface LinkButtonProps extends Omit<React.LinkHTMLAttributes<HTMLAncho
 }
 
 const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
-	({ className, variant, color, size, asChild = false, ring = false, startIcon, endIcon, children, href, ...props }, ref) => {
+	({ className, variant, color, size, ring = false, startIcon, endIcon, children, href, ...props }, ref) => {
 		return (
 			<Link
 				data-start-icon={!!startIcon}

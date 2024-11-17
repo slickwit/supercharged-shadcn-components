@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -10,10 +10,10 @@ import { paramCase } from "@/lib/change-case";
 
 type TDivClassName = Pick<React.HTMLAttributes<HTMLDivElement>, "className">;
 
-interface CustomRHFCheckboxProps<T>
+interface CustomRHFCheckboxProps<TFieldValues extends FieldValues>
 	extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<React.ComponentPropsWithoutRef<typeof Checkbox>, "name" | "defaultValue"> {
-	name: keyof T extends string ? keyof T : never;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	containerClass?: TDivClassName;
 	checkboxContainerClass?: TDivClassName;
@@ -21,7 +21,7 @@ interface CustomRHFCheckboxProps<T>
 	labelProps?: React.ComponentPropsWithoutRef<typeof Label>;
 }
 
-export default function CustomRHFCheckbox<T extends FieldValues>({
+export default function CustomRHFCheckbox<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -30,9 +30,8 @@ export default function CustomRHFCheckbox<T extends FieldValues>({
 	checkboxContainerClass,
 	label,
 	labelProps,
-	className,
 	...other
-}: CustomRHFCheckboxProps<T>) {
+}: CustomRHFCheckboxProps<TFieldValues>) {
 	const { control } = useFormContext();
 
 	return (

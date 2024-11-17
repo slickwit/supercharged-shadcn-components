@@ -13,7 +13,7 @@ export const buttonVariants = cva(
 				className: "text-slate-100 dark:text-slate-900 bg-common dark:hover:bg-common/85 hover:bg-common/85",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "default",
 				className: "text-muted-foreground border-input/35 border",
 			},
@@ -39,7 +39,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-primary hover:bg-primary-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "primary",
 				className: "text-primary border-primary border",
 			},
@@ -65,7 +65,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-secondary hover:bg-secondary-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "secondary",
 				className: "text-secondary border-secondary border",
 			},
@@ -91,7 +91,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-info hover:bg-info-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "info",
 				className: "text-info border-info border",
 			},
@@ -117,7 +117,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-success hover:bg-success-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "success",
 				className: "text-success border-success border",
 			},
@@ -143,7 +143,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-warning hover:bg-warning-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "warning",
 				className: "text-warning border-warning border",
 			},
@@ -169,7 +169,7 @@ export const buttonVariants = cva(
 				className: "text-white bg-error hover:bg-error-dark",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "error",
 				className: "text-error border-error border",
 			},
@@ -196,7 +196,7 @@ export const buttonVariants = cva(
 				link: "underline-offset-4 hover:underline",
 				ghost: "",
 				contained: "",
-				outlined: "",
+				outline: "",
 				soft: "",
 			},
 			color: {

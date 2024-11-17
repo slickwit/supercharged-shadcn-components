@@ -1,22 +1,22 @@
 "use client";
 import type { ComponentPropsWithoutRef } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { CustomInput } from "@/components/ui/inputs/custom/custom-input";
 
 // ----------------------------------------------------------------------
 
-interface CustomRHFInputProps<T>
+interface CustomRHFInputProps<TFieldValues extends FieldValues>
 	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<ComponentPropsWithoutRef<typeof CustomInput>, "name" | "defaultValue"> {
-	name: keyof T;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	containerClass?: string;
 	label?: string;
 }
 
-export default function CustomRHFInput<T extends FieldValues>({
+export default function CustomRHFInput<TFieldValues extends FieldValues>({
 	name,
 	label,
 	helperText,
@@ -26,11 +26,11 @@ export default function CustomRHFInput<T extends FieldValues>({
 	containerClass,
 	className,
 	...other
-}: CustomRHFInputProps<T>) {
+}: CustomRHFInputProps<TFieldValues>) {
 	const { control, setValue } = useFormContext();
 	return (
 		<Controller
-			name={name as string}
+			name={name}
 			control={control}
 			defaultValue={defaultValue}
 			rules={rules}

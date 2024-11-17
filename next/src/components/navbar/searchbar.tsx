@@ -1,9 +1,19 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { SearchIcon, FileText } from "lucide-react";
+import React, { useEffect } from "react";
+import {
+	SearchIcon,
+	// FileText
+} from "lucide-react";
 
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import Link from "next/link";
+import {
+	CommandDialog,
+	CommandEmpty,
+	// CommandGroup,
+	CommandInput,
+	// CommandItem,
+	CommandList,
+} from "@/components/ui/command";
+// import Link from "next/link";
 import { useBoolean } from "@/hooks/use-boolean";
 
 export function Searchbar() {
@@ -19,7 +29,7 @@ export function Searchbar() {
 
 		document.addEventListener("keydown", down);
 		return () => document.removeEventListener("keydown", down);
-	}, []);
+	}, [open]);
 
 	return (
 		<>

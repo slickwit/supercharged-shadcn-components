@@ -12,7 +12,7 @@ const buttonVariants = cva(
 			{
 				variant: "contained",
 				color: "default",
-				className: "bg-gray-600 text-primary-foreground hover:bg-gray-500",
+				className: "bg-gray-600 text-white hover:bg-gray-500",
 			},
 			{
 				variant: "outline",

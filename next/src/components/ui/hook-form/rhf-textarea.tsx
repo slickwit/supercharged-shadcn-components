@@ -1,21 +1,21 @@
 "use client";
 import type { ComponentPropsWithoutRef } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { FloatingLabelTextArea } from "@/components/ui/inputs";
 
 // ----------------------------------------------------------------------
 
-interface CustomRHFTextareaProps<T>
+interface CustomRHFTextareaProps<TFieldValues extends FieldValues>
 	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<ComponentPropsWithoutRef<typeof FloatingLabelTextArea>, "name" | "defaultValue"> {
-	name: keyof T extends string ? keyof T : never;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	containerClass?: string;
 	label: string;
 }
 
-export default function CustomRHFTextarea<T extends FieldValues>({
+export default function CustomRHFTextarea<TFieldValues extends FieldValues>({
 	name,
 	label,
 	helperText,
@@ -24,7 +24,7 @@ export default function CustomRHFTextarea<T extends FieldValues>({
 	containerClass,
 	className,
 	...other
-}: CustomRHFTextareaProps<T>) {
+}: CustomRHFTextareaProps<TFieldValues>) {
 	const { control } = useFormContext();
 	return (
 		<Controller

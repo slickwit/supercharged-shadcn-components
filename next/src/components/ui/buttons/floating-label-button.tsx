@@ -12,7 +12,7 @@ export interface FloatingLabelButonProps
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean;
 	ring?: boolean;
-	variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "contained" | "outlined";
+	variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "contained" | "outline";
 	color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
 	size?: "default" | "sm" | "md" | "lg" | "icon";
 	startIcon?: React.ReactNode;
@@ -24,7 +24,7 @@ export interface FloatingLabelButonProps
 }
 
 const FloatingLabelButon = React.forwardRef<HTMLButtonElement, FloatingLabelButonProps>(
-	({ className, variant, color, size, asChild = false, error = false, startIcon, endIcon, children, label, value, ...props }, ref) => {
+	({ className, variant = "contained", color, size, asChild = false, error = false, startIcon, endIcon, label, value, ...props }, ref) => {
 		const Comp = asChild ? Slot : "button";
 
 		return (

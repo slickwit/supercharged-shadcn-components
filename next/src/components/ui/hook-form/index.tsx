@@ -18,6 +18,6 @@ export { default as RHFCombobox } from "./rhf-combobox";
 export { default as RHFDatePicker } from "./rhf-date-picker";
 export { default as RHFTimePicker } from "./rhf-time-picker";
 
-// //
-// export { RHFUpload } from "./rhf-upload";
-// export { RHFUploadMultiple } from "./rhf-upload-multiple";
+//
+export { RHFUpload } from "./rhf-upload";
+export { RHFUploadMultiple } from "./rhf-upload-multiple";

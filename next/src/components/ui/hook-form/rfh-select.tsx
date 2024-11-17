@@ -1,6 +1,6 @@
 "use client";
 import { type ComponentPropsWithoutRef } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Select, SelectContent, SelectItem } from "@/components/ui/select";
 import { Trigger } from "@radix-ui/react-select";
@@ -14,10 +14,10 @@ type SelectOption = {
 	value: string;
 };
 
-interface CustomRHFSelectProps<T>
+interface CustomRHFSelectProps<TFieldValues extends FieldValues>
 	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<ComponentPropsWithoutRef<typeof Select>, "name" | "defaultValue"> {
-	name: keyof T extends string ? keyof T : never;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	containerClass?: string;
 	label?: string;
@@ -25,7 +25,7 @@ interface CustomRHFSelectProps<T>
 	options: SelectOption[];
 }
 
-export default function CustomRHFSelect<T extends Record<string, any>>({
+export default function CustomRHFSelect<TFieldValues extends FieldValues>({
 	name,
 	label,
 	helperText,
@@ -34,10 +34,10 @@ export default function CustomRHFSelect<T extends Record<string, any>>({
 	containerClass,
 	buttonClass,
 	options,
-}: CustomRHFSelectProps<T>) {
+}: CustomRHFSelectProps<TFieldValues>) {
 	const { control } = useFormContext();
 
-	const handleValueChange = (value: string, onChange: (...event: any[]) => void) => {
+	const handleValueChange = (value: string, onChange: (value: string) => void) => {
 		if (value !== "empty") {
 			onChange(value);
 			return;
@@ -58,7 +58,7 @@ export default function CustomRHFSelect<T extends Record<string, any>>({
 							<FloatingLabelButon
 								label={label ?? ""}
 								value={field.value}
-								variant="outlined"
+								variant="outline"
 								className={cn("w-full", buttonClass)}
 								endIcon={<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />}
 								error={!!error}

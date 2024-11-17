@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { FloatingLabelButon } from "@/components/ui/buttons";
 import TimePicker from "../date/time-picker";
 import { getString12HourTime, getStringTime, Period } from "../date/time-picker-utils";
 
 // ----------------------------------------------------------------------
 
-interface RHFTimePickerProps<T> extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
-	name: keyof T extends string ? keyof T : never;
+interface RHFTimePickerProps<TFieldValues extends FieldValues>
+	extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
+	name: FieldPath<TFieldValues>;
 	buttonProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "value" | "label">;
 	timePickerProps?: Omit<React.ComponentPropsWithoutRef<typeof TimePicker>, "value" | "label" | "date" | "setDate" | "period" | "setPeriod">;
 	helperText?: string;
@@ -16,7 +17,7 @@ interface RHFTimePickerProps<T> extends Omit<React.ComponentPropsWithoutRef<type
 	stringVal?: boolean;
 }
 
-export default function CustomRHFTimePicker<T extends FieldValues>({
+export default function CustomRHFTimePicker<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -25,12 +26,12 @@ export default function CustomRHFTimePicker<T extends FieldValues>({
 	buttonProps = {},
 	timePickerProps = {},
 	stringVal = false,
-}: RHFTimePickerProps<T>) {
+}: RHFTimePickerProps<TFieldValues>) {
 	const [period, setPeriod] = useState<Period>("AM");
 	const [date, setDate] = useState<Date | undefined>(undefined);
 	const { control } = useFormContext();
 
-	const handleChange = (d: Date | undefined, onChange: (...event: any[]) => void) => {
+	const handleChange = (d: Date | undefined, onChange: (value?: string | Date) => void) => {
 		setDate(d);
 		if (stringVal) {
 			const stringTime = !!d ? getStringTime(d) : "";

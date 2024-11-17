@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
@@ -18,8 +18,9 @@ type TOption = {
 
 type TOptions = TOption[] | Record<string, TOption[]>;
 
-interface RHFComboboxProps<T> extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
-	name: keyof T extends string ? keyof T : never;
+interface RHFComboboxProps<TFieldValues extends FieldValues>
+	extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
+	name: FieldPath<TFieldValues>;
 	btnProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "value" | "label">;
 	popoverProps?: React.ComponentPropsWithoutRef<typeof PopoverContent>;
 	helperText?: string;
@@ -30,7 +31,7 @@ interface RHFComboboxProps<T> extends Omit<React.ComponentPropsWithoutRef<typeof
 	noResultText?: string;
 }
 
-export default function CustomRHFCombobox<T extends FieldValues>({
+export default function CustomRHFCombobox<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -39,14 +40,14 @@ export default function CustomRHFCombobox<T extends FieldValues>({
 	placeholder = "Search...",
 	options,
 	btnProps = {
-		variant: "outlined",
+		variant: "outline",
 		size: "md",
 		className: "w-full justify-between",
 	},
 	popoverProps,
 	enableCheck = true,
 	noResultText = "No item found.",
-}: RHFComboboxProps<T>) {
+}: RHFComboboxProps<TFieldValues>) {
 	const btnRef = React.useRef<HTMLButtonElement>(null);
 	const [open, setOpen] = React.useState(false);
 	const { control } = useFormContext();
@@ -68,7 +69,7 @@ export default function CustomRHFCombobox<T extends FieldValues>({
 	}
 
 	const handleSelect = React.useCallback(
-		(onChange: (...event: any[]) => void, value: string, isSelected: boolean) => () => {
+		(onChange: (value: string) => void, value: string, isSelected: boolean) => () => {
 			onChange(!isSelected ? value : "");
 			setOpen(false);
 		},

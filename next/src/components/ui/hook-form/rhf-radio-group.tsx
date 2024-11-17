@@ -1,20 +1,20 @@
 "use client";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { RadioGroup } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
 
 // ----------------------------------------------------------------------
 
-interface RHFRadioGroupProps<T>
+interface RHFRadioGroupProps<TFieldValues extends FieldValues>
 	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<ComponentPropsWithoutRef<typeof RadioGroup>, "name" | "defaultValue"> {
-	name: keyof T extends string ? keyof T : never;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	children: ReactNode;
 }
 
-export default function CustomRHFRadioGroup<T extends FieldValues>({
+export default function CustomRHFRadioGroup<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -22,7 +22,7 @@ export default function CustomRHFRadioGroup<T extends FieldValues>({
 	className,
 	children,
 	...other
-}: RHFRadioGroupProps<T>) {
+}: RHFRadioGroupProps<TFieldValues>) {
 	const { control } = useFormContext();
 	return (
 		<Controller

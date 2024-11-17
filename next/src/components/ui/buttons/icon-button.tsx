@@ -12,7 +12,7 @@ export const iconButtonVariants = cva(
 			variant: {
 				default: "",
 				filled: "",
-				outlined: "",
+				outline: "",
 				ghost: "",
 				soft: "",
 			},
@@ -46,7 +46,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-900 dark:text-slate-100  bg-slate-600 bg-opacity-45 hover:bg-opacity-100 dark:bg-200",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "default",
 				className:
 					"text-slate-900 dark:text-slate-100 border border-slate-400 dark:border-slate-300 dark:hover:bg-slate-600/35 hover:bg-slate-600/10",
@@ -73,7 +73,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-100 bg-primary hover:bg-primary-dark dark:bg-primary dark:hover:bg-primary/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "primary",
 				className: "text-primary border border-primary hover:bg-primary-light/35",
 			},
@@ -94,7 +94,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-100 bg-secondary hover:bg-secondary-dark dark:bg-secondary dark:hover:bg-secondary/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "secondary",
 				className: "text-secondary border border-secondary hover:bg-secondary-light/35",
 			},
@@ -115,7 +115,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-100 bg-success hover:bg-success-dark dark:bg-success dark:hover:bg-success/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "success",
 				className: "text-success border border-success hover:bg-success-light/35",
 			},
@@ -136,7 +136,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-100 bg-info hover:bg-info-dark dark:bg-info dark:hover:bg-info/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "info",
 				className: "text-info border border-info hover:bg-info-light/35",
 			},
@@ -157,7 +157,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-900 bg-warning hover:bg-warning-dark dark:bg-warning dark:hover:bg-warning/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "warning",
 				className: "text-warning border border-warning hover:bg-warning-light/35",
 			},
@@ -183,7 +183,7 @@ export const iconButtonVariants = cva(
 				className: "text-slate-100 bg-error hover:bg-error-dark dark:bg-error dark:hover:bg-error/80",
 			},
 			{
-				variant: "outlined",
+				variant: "outline",
 				color: "error",
 				className: "text-error border border-error hover:bg-error-light/35",
 			},
@@ -208,7 +208,7 @@ export const iconButtonVariants = cva(
 
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color">, VariantProps<typeof iconButtonVariants> {
 	asChild?: boolean;
-	variant?: "default" | "filled" | "outlined" | "ghost" | "soft";
+	variant?: "default" | "filled" | "outline" | "ghost" | "soft";
 	size?: "xs" | "sm" | "md" | "lg";
 	color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
 	transitionOff?: boolean;

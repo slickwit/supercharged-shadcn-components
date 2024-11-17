@@ -1,23 +1,25 @@
 "use client";
 import type { ComponentPropsWithoutRef } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { DatePicker } from "@/components/ui/date/date-picker";
 import { FloatingLabelButon } from "@/components/ui/buttons";
 import { Calendar } from "@/components/ui/calendar";
 
 // ----------------------------------------------------------------------
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface ICalendar extends Omit<ComponentPropsWithoutRef<typeof Calendar>, "selected" | "onSelect" | "mode"> {}
 
-interface RHFDatePickerProps<T> extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
-	name: keyof T extends string ? keyof T : never;
+interface RHFDatePickerProps<TFieldValues extends FieldValues>
+	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
+	name: FieldPath<TFieldValues>;
 	btnProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "value" | "label">;
 	calendarProps?: ICalendar;
 	helperText?: string;
 	label?: string;
 }
 
-export default function CustomRHFDatePicker<T extends FieldValues>({
+export default function CustomRHFDatePicker<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -28,7 +30,7 @@ export default function CustomRHFDatePicker<T extends FieldValues>({
 	},
 	label,
 	calendarProps,
-}: RHFDatePickerProps<T>) {
+}: RHFDatePickerProps<TFieldValues>) {
 	const { control } = useFormContext();
 	return (
 		<Controller

@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { FloatingLabelButon } from "@/components/ui/buttons";
 import { ChevronsUpDown, Square, SquareCheckBig } from "lucide-react";
@@ -13,8 +13,9 @@ type SelectOption = {
 	value: string;
 };
 
-interface CustomRHFMultiSelectProps<T> extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
-	name: keyof T extends string ? keyof T : never;
+interface CustomRHFMultiSelectProps<TFieldValues extends FieldValues>
+	extends Omit<React.ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render"> {
+	name: FieldPath<TFieldValues>;
 	btnProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "value" | "label">;
 	popoverProps?: React.ComponentPropsWithoutRef<typeof PopoverContent>;
 	helperText?: string;
@@ -23,7 +24,7 @@ interface CustomRHFMultiSelectProps<T> extends Omit<React.ComponentPropsWithoutR
 	options: SelectOption[];
 }
 
-export default function CustomRHFMultiSelect<T extends FieldValues>({
+export default function CustomRHFMultiSelect<TFieldValues extends FieldValues>({
 	name,
 	label,
 	helperText,
@@ -31,13 +32,13 @@ export default function CustomRHFMultiSelect<T extends FieldValues>({
 	rules,
 	containerClass,
 	btnProps = {
-		variant: "outlined",
+		variant: "outline",
 		size: "md",
 		className: "w-full justify-between",
 	},
 	popoverProps,
 	options,
-}: CustomRHFMultiSelectProps<T>) {
+}: CustomRHFMultiSelectProps<TFieldValues>) {
 	const btnRef = React.useRef<React.ElementRef<"button">>(null);
 	const [open, setOpen] = React.useState(false);
 	const { control } = useFormContext();

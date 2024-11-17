@@ -1,20 +1,20 @@
 "use client";
 import type { ComponentPropsWithoutRef, HTMLAttributes } from "react";
-import { Controller, type FieldValues, useFormContext } from "react-hook-form";
+import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { FloatingLabelInput } from "@/components/ui/inputs";
 import { cn } from "@/lib/utils";
 
 // ----------------------------------------------------------------------
 
-interface CustomRHFFloatingInputProps<T>
+interface CustomRHFFloatingInputProps<TFieldValues extends FieldValues>
 	extends Omit<ComponentPropsWithoutRef<typeof Controller>, "name" | "control" | "render">,
 		Omit<ComponentPropsWithoutRef<typeof FloatingLabelInput>, "name" | "defaultValue"> {
-	name: keyof T extends string ? keyof T : never;
+	name: FieldPath<TFieldValues>;
 	helperText?: string;
 	containerClass?: Pick<HTMLAttributes<HTMLDivElement>, "className">;
 }
 
-export default function CustomRHFFloatingInput<T extends FieldValues>({
+export default function CustomRHFFloatingInput<TFieldValues extends FieldValues>({
 	name,
 	helperText,
 	defaultValue,
@@ -23,7 +23,7 @@ export default function CustomRHFFloatingInput<T extends FieldValues>({
 	label,
 	className,
 	...other
-}: CustomRHFFloatingInputProps<T>) {
+}: CustomRHFFloatingInputProps<TFieldValues>) {
 	const { control } = useFormContext();
 
 	return (

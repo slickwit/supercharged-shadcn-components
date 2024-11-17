@@ -45,7 +45,7 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 		<Popover open={open} onOpenChange={handleOpenChange}>
 			<PopoverTrigger asChild>
 				<FloatingLabelButon
-					variant="outlined"
+					variant="outline"
 					size="md"
 					label={label}
 					value={value ?? ""}

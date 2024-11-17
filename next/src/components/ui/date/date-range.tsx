@@ -16,7 +16,7 @@ interface DateRangePickerProps {
 	onSelect?: SelectRangeEventHandler;
 	onClear?: () => void;
 	label?: string;
-	btnProps?: ComponentPropsWithoutRef<typeof Button>;
+	btnProps?: ComponentPropsWithoutRef<typeof FloatingLabelButon>;
 	calendarProps?: Omit<ComponentPropsWithoutRef<typeof Calendar>, "selected" | "onSelect" | "mode">;
 }
 
@@ -34,7 +34,7 @@ export default function DateRangePicker({
 		<Popover>
 			<PopoverTrigger asChild>
 				<FloatingLabelButon
-					// variant="outlined"
+					variant="outline"
 					label={label}
 					value={shortLabel ?? ""}
 					{...btnProps}
