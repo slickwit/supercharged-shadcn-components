@@ -51,7 +51,7 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 					value={value ?? ""}
 					{...buttonProps}
 					className={cn(
-						"w-full justify-start text-sm font-medium select-none overflow-x-clip py-1",
+						"w-full justify-start text-base font-medium select-none overflow-x-clip py-1",
 						!value && "text-muted-foreground",
 						buttonProps?.className,
 					)}
