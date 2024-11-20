@@ -58,11 +58,11 @@
     --error-foreground: 29 100% 92%;
   }
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 214 24% 11%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 214 24% 11%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 214 24% 11%;
     --popover-foreground: 0 0% 98%;
     --primary: 142.1 76.2% 36.3%;
     --primary-foreground: 240 5.9% 10%;
@@ -75,14 +75,17 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
+    /* --input: 240 3.7% 15.9%; */
+    --input: 220 8.9% 46.1%;
     --ring: 240 4.9% 83.9%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
+
+    /* --sidebar-background: 240 5.9% 10%; */
+    --sidebar-background: 214 24% 11%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -90,6 +93,19 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 267 100% 60%;
+    --secondary-foreground: 277 100% 92%;
+    --info: 189 100% 43%;
+    --info-foreground: 171 93% 89%;
+    --success: 142 71% 45%;
+    --success-foreground: 119 88% 91%;
+    --warning: 40 100% 50%;
+    --warning-foreground: 48 100% 90%;
+    --error: 11 100% 59%;
+    --error-foreground: 29 100% 92%;
   }
 }
 
@@ -100,5 +116,37 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (pointer: fine) {
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-corner {
+      color: hsl(var(--primary));
+      background: hsl(var(--accent) / 0.08);
+      width: 12px;
+      height: 12px;
+    }
+    ::-webkit-scrollbar-button {
+      height: 0;
+      width: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: content-box currentColor;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      color: hsl(var(--muted-foreground));
+      min-height: 48px;
+      min-width: 48px;
+    }
+
+    @supports not (selector(::-webkit-scrollbar)) {
+      * {
+        scrollbar-color: hsl(var(--muted-foreground)) transparent;
+        scrollbar-gutter: auto;
+        scrollbar-width: thin;
+        border-radius: 8px;
+      }
+    }
   }
 }
