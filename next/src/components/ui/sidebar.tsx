@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps, cva } from "class-variance-authority";
-import { AlignCenter, ChevronLeftIcon } from "lucide-react";
+import { PanelLeft } from "lucide-react";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
+export const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
@@ -137,7 +137,7 @@ const Sidebar = React.forwardRef<
 		collapsible?: "offcanvas" | "icon" | "none";
 	}
 >(({ side = "left", variant = "sidebar", collapsible = "offcanvas", className, children, ...props }, ref) => {
-	const { isMobile, state, openMobile, setOpenMobile, open } = useSidebar();
+	const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
 	if (collapsible === "none") {
 		return (
@@ -149,47 +149,32 @@ const Sidebar = React.forwardRef<
 
 	if (isMobile) {
 		return (
-			<>
-				<SidebarTrigger className="ml-1.5" variant="ghost">
-					<AlignCenter />
-				</SidebarTrigger>
-				<Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-					<SheetContent
-						data-sidebar="sidebar"
-						data-mobile="true"
-						className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-						style={
-							{
-								"--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-							} as React.CSSProperties
-						}
-						side={side}>
-						<div className="flex h-full w-full flex-col">{children}</div>
-					</SheetContent>
-				</Sheet>
-			</>
+			<Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+				<SheetContent
+					data-sidebar="sidebar"
+					data-mobile="true"
+					className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+					style={
+						{
+							"--sidebar-width": SIDEBAR_WIDTH_MOBILE,
+						} as React.CSSProperties
+					}
+					side={side}>
+					<div className="flex h-full w-full flex-col">{children}</div>
+				</SheetContent>
+			</Sheet>
 		);
 	}
 
 	return (
 		<div
 			ref={ref}
-			className="group peer hidden md:block text-sidebar-foreground relative"
+			className="group peer hidden md:block text-sidebar-foreground"
 			data-state={state}
 			data-collapsible={state === "collapsed" ? collapsible : ""}
 			data-variant={variant}
 			data-side={side}>
 			{/* This is what handles the sidebar gap on desktop */}
-			<SidebarTrigger
-				className={cn(
-					"top-4 bg-sidebar rounded-full fixed z-[60] transition-[left,rotate] duration-200",
-					open ? "rotate-0" : "rotate-180",
-				)}
-				style={{
-					left: open ? `calc(${SIDEBAR_WIDTH} - 1rem)` : "1rem",
-				}}>
-				<ChevronLeftIcon />
-			</SidebarTrigger>
 			<div
 				className={cn(
 					"duration-200 relative h-svh w-[--sidebar-width] bg-transparent transition-[width] ease-linear",
@@ -225,22 +210,22 @@ const Sidebar = React.forwardRef<
 Sidebar.displayName = "Sidebar";
 
 const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.ComponentProps<typeof Button>>(
-	({ className, onClick, children, ...props }, ref) => {
+	({ className, onClick, ...props }, ref) => {
 		const { toggleSidebar } = useSidebar();
 
 		return (
 			<Button
 				ref={ref}
 				data-sidebar="trigger"
-				variant="outline"
+				variant="ghost"
 				size="icon"
-				className={cn("size-7 lg:size-8", className)}
+				className={cn("h-7 w-7", className)}
 				onClick={(event) => {
 					onClick?.(event);
 					toggleSidebar();
 				}}
 				{...props}>
-				{children}
+				<PanelLeft />
 				<span className="sr-only">Toggle Sidebar</span>
 			</Button>
 		);

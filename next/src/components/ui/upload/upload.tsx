@@ -93,7 +93,7 @@ export function Upload(props: UploadProps) {
 			<div
 				{...getRootProps()}
 				className={cn(
-					"min-h-[300px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 border border-dashed border-gray-500/20 transition-all hover:opacity-80",
+					"min-h-[300px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 border border-dashed border-input transition-all hover:opacity-80",
 					{
 						"opacity-80": isDragActive,
 						"pointer-events-none opacity-50": disabled,

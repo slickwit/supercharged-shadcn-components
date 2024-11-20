@@ -52,7 +52,7 @@ const FloatingLabelButon = React.forwardRef<HTMLButtonElement, FloatingLabelButo
 				{!!endIcon && <span>{endIcon}</span>}
 				<fieldset
 					className={cn(
-						"absolute group-focus:border-2 group-focus-visible:border-2 transition-all group-focus:border-primary group-focus-visible:border-primary inset-0 -top-[5px] border border-input/35 rounded-md m-0 py-0 text-left px-2 pointer-events-none min-w-0 group-focus:[&>legend]:max-w-full group-focus-visible:[&>legend]:max-w-full group-data-[value=false]:[&>legend]:max-w-0",
+						"absolute group-focus:border-2 group-focus-visible:border-2 transition-all group-focus:border-primary group-focus-visible:border-primary inset-0 -top-[5px] border border-input rounded-md m-0 py-0 text-left px-2 pointer-events-none min-w-0 group-focus:[&>legend]:max-w-full group-focus-visible:[&>legend]:max-w-full group-data-[value=false]:[&>legend]:max-w-0",
 						{
 							"text-error border-error": !!error,
 						},

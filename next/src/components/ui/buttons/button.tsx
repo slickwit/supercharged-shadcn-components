@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+	"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 align-middle",
 	{
 		compoundVariants: [
 			// Default color
@@ -17,7 +17,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "default",
-				className: "text-muted-foreground border-input/35 border",
+				className: "text-foreground border-foreground border hover:bg-muted-foreground/5 dark:hover:bg-muted-foreground/20",
 			},
 			{
 				variant: "ghost",
@@ -43,7 +43,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "primary",
-				className: "text-primary border-primary border",
+				className: "text-primary border-primary border hover:bg-primary/5",
 			},
 			{
 				variant: "ghost",
@@ -69,7 +69,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "secondary",
-				className: "text-secondary border-secondary border",
+				className: "text-secondary border-secondary border hover:bg-secondary/5",
 			},
 			{
 				variant: "ghost",
@@ -95,7 +95,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "info",
-				className: "text-info border-info border",
+				className: "text-info border-info border hover:bg-info/5",
 			},
 			{
 				variant: "ghost",
@@ -121,7 +121,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "success",
-				className: "text-success border-success border",
+				className: "text-success border-success border hover:bg-success/5",
 			},
 			{
 				variant: "ghost",
@@ -147,7 +147,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "warning",
-				className: "text-warning border-warning border",
+				className: "text-warning border-warning border hover:bg-warning/5",
 			},
 			{
 				variant: "ghost",
@@ -173,7 +173,7 @@ const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "error",
-				className: "text-error border-error border",
+				className: "text-error border-error border hover:bg-error/5",
 			},
 			{
 				variant: "ghost",
@@ -197,7 +197,7 @@ const buttonVariants = cva(
 				destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
 				contained: "",
 				soft: "",
-				outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+				outline: "hover:shadow-[currentcolor_0px_0px_0px_0.5px]",
 				secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
 				ghost: "hover:bg-accent hover:text-accent-foreground",
 				link: "underline-offset-4 hover:underline",
