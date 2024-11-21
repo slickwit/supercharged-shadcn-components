@@ -59,7 +59,7 @@
     "postcss": "^8",
     "rehype": "^12.0.1",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-pretty-code": "^0.6.0",
+    "rehype-pretty-code": "^0.14.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.0",
     "shiki": "^1.23.1",
