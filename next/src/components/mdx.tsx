@@ -1,13 +1,13 @@
 // @ts-nocheck
 "use client";
 import * as React from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ComponentPreview } from "@/components/component-preview";
+import { ComponentSource } from "@/components/component-source";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer2/hooks";
-import { cn } from "@/lib/utils";
-import { Callout } from "@/components/callout";
-import { ComponentPreview } from "@/components/component-preview";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const components = {
@@ -69,27 +69,15 @@ const components = {
 	td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
 		<td className={cn("px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
 	),
-	pre: ({
-		className,
-		__rawString__,
-		...props
-	}: React.HTMLAttributes<HTMLPreElement> & {
-		__rawString__?: string;
-	}) => {
-		console.log("pre", __rawString__);
-		return (
-			<>
-				<pre className={cn("max-h-[650px] overflow-x-auto rounded-lg border px-1 py-4 bg-zinc-800", className)} {...props} />
-				<button>test</button>
-			</>
-		);
-	},
-	code: ({ className, __rawString__, ...props }: React.HTMLAttributes<HTMLElement>) => {
-		console.log("code", __rawString__);
-		return <code className={cn("relative rounded font-mono text-sm", className)} {...props} />;
-	},
+	pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
+		<pre className={cn("max-h-[650px] overflow-x-auto rounded-lg border pl-3 py-4 bg-zinc-800", className)} {...props} />
+	),
+	code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+		<code className={cn("relative rounded font-mono text-sm", className)} {...props} />
+	),
 	Image,
 	ComponentPreview,
+	ComponentSource,
 	Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => <Tabs className={cn("relative mt-6 w-full", className)} {...props} />,
 	TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
 		<TabsList className={cn("w-full justify-start rounded-none border-b bg-transparent p-0", className)} {...props} />

@@ -30,7 +30,7 @@ export default async function DocsPage({ params }: DocsPageProps) {
 	}
 
 	return (
-		<div>
+		<div className="lg:max-w-[70%] pb-12">
 			<div className="space-y-2">
 				<h1 className="text-3xl font-bold tracking-tight">{doc.title}</h1>
 				<p className="text-muted-foreground">{doc.description}</p>

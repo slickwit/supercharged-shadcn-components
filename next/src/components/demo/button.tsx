@@ -90,6 +90,34 @@ export default function ButtonDemo() {
 					</Button>
 				</CardContent>
 			</Card>
+			<Card className="w-full">
+				<CardHeader>
+					<CardTitle>Ghost</CardTitle>
+				</CardHeader>
+				<CardContent className="flex flex-wrap gap-2.5 w-full">
+					<Button variant="ghost" color="default">
+						Default
+					</Button>
+					<Button variant="ghost" color="primary">
+						Primary
+					</Button>
+					<Button variant="ghost" color="secondary">
+						Secondary
+					</Button>
+					<Button variant="ghost" color="success">
+						Success
+					</Button>
+					<Button variant="ghost" color="info">
+						Info
+					</Button>
+					<Button variant="ghost" color="warning">
+						Warning
+					</Button>
+					<Button variant="ghost" color="error">
+						Error
+					</Button>
+				</CardContent>
+			</Card>
 		</>
 	);
 }

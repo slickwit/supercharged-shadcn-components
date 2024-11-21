@@ -10,7 +10,7 @@ export const buttonVariants = cva(
 			{
 				variant: "contained",
 				color: "default",
-				className: "text-slate-100 dark:text-slate-900 bg-common dark:hover:bg-common/85 hover:bg-common/85",
+				className: "",
 			},
 			{
 				variant: "outline",
