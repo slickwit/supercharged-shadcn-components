@@ -6,6 +6,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGFM from "remark-gfm";
 import { visit } from "unist-util-visit";
+import { type UnistNode } from "types/unist";
 
 export const Doc = defineDocumentType(() => ({
 	name: "Doc",
@@ -69,10 +70,10 @@ export default makeSource({
 				{
 					theme: "github-dark",
 					getHighlighter,
-					onVisitLine(node) {
+					onVisitLine(node: UnistNode) {
 						// Prevent lines from collapsing in `display: grid` mode, and allow empty
 						// lines to be copy/pasted
-						if (node.children.length === 0) {
+						if (node.children?.length === 0) {
 							node.children = [{ type: "text", value: " " }];
 						}
 					},

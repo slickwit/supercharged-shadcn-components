@@ -9,9 +9,11 @@ import fs from "fs";
 export function rehypeComponent() {
 	return async (tree: UnistTree) => {
 		visit(tree, (node: UnistNode) => {
-			if (node.name === "ComponentPreview") {
+			if (node.name === "ComponentPreview" || node.name === "ComponentSource") {
 				const name = node.attributes?.find((attribute) => attribute.name === "name")?.value as string;
 				if (!name) return null;
+
+				console.log(node);
 
 				try {
 					const demo = demoComponents[name];
