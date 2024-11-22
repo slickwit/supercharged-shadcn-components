@@ -1,8 +1,8 @@
 "use client";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
-import { Button } from "./ui/buttons";
 import { Check, Clipboard } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 // ----------------------------------------------------------------------
 
@@ -16,12 +16,7 @@ export default function CopyCode({ text, className }: CopyCodeProps) {
 
 	if (isCopied) {
 		return (
-			<Button
-				variant="outline"
-				className={cn(
-					"size-7 text-input p-0 hover:bg-current hover:outline-0 dark:hover:bg-transparent dark:hover:outline-0 border-input",
-					className,
-				)}>
+			<Button variant="outline" className={cn("size-7 text-input p-0 bg-transparent", className)}>
 				<Check />
 			</Button>
 		);
@@ -29,10 +24,7 @@ export default function CopyCode({ text, className }: CopyCodeProps) {
 	return (
 		<Button
 			variant="outline"
-			className={cn(
-				"size-7 text-input p-0 hover:bg-current hover:outline-0 dark:hover:bg-transparent dark:hover:outline-0 border-input",
-				className,
-			)}
+			className={cn("size-7 text-input p-0 hover:outline-0 bg-transparent", className)}
 			onClick={() => copyToClipboard(text)}>
 			<Clipboard />
 		</Button>

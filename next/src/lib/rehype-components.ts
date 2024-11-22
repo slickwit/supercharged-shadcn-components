@@ -13,8 +13,6 @@ export function rehypeComponent() {
 				const name = node.attributes?.find((attribute) => attribute.name === "name")?.value as string;
 				if (!name) return null;
 
-				console.log(node);
-
 				try {
 					const demo = demoComponents[name];
 					const src = demo?.path;
@@ -25,6 +23,7 @@ export function rehypeComponent() {
 							tagName: "pre",
 							properties: {
 								__src__: src,
+								__rawString__: source,
 							},
 							children: [
 								u("element", {

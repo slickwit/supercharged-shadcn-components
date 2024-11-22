@@ -1,14 +1,17 @@
 import * as React from "react";
-import { CustomTextarea, type CustomTextareaProps } from "./custom/custom-textarea";
 import { cn } from "@/lib/utils";
-import { FloatingLabel } from "./floating-label-input";
+import { Textarea } from "@/components/ui/textarea";
+import { FloatingLabel } from "./base/floating-label";
 
-const FloatingTextArea = React.forwardRef<HTMLTextAreaElement, CustomTextareaProps>(({ className, ...props }, ref) => {
-	return <CustomTextarea placeholder=" " className={cn("peer bg-transparent border-none", className)} ref={ref} {...props} />;
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
+const FloatingTextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => {
+	return <Textarea placeholder=" " className={cn("peer bg-transparent border-none", className)} ref={ref} {...props} />;
 });
 FloatingTextArea.displayName = "FloatingTextArea";
 
-export type FloatingLabelTextAreaProps = CustomTextareaProps & {
+export type FloatingLabelTextAreaProps = TextareaProps & {
 	label: string;
 	error?: boolean;
 };
