@@ -1,19 +1,6 @@
 "use client";
 import * as React from "react";
-import {
-	AudioWaveform,
-	BookOpen,
-	Bot,
-	Command,
-	Frame,
-	GalleryVerticalEnd,
-	Map,
-	PieChart,
-	Settings2,
-	SquareDot,
-	SquareTerminal,
-	Upload,
-} from "lucide-react";
+import { BookOpen, Ellipsis, SquareDot, Upload } from "lucide-react";
 import {
 	Sidebar,
 	SidebarContent,
@@ -57,6 +44,34 @@ const data = {
 			],
 		},
 		{
+			title: "Inputs",
+			url: "#",
+			icon: Ellipsis,
+			isActive: true,
+			items: [
+				{
+					title: "Floating Input",
+					url: "/docs/components/inputs/floating-input",
+				},
+				{
+					title: "Floating Textarea",
+					url: "/docs/components/inputs/floating-textarea",
+				},
+				{
+					title: "Date Picker",
+					url: "/docs/components/inputs/date-picker",
+				},
+				{
+					title: "Date Range Picker",
+					url: "/docs/components/inputs/date-range-picker",
+				},
+				{
+					title: "Time Picker",
+					url: "/docs/components/inputs/time-picker",
+				},
+			],
+		},
+		{
 			title: "Upload",
 			url: "/docs/components/upload",
 			icon: Upload,
@@ -69,7 +84,7 @@ const data = {
 			items: [
 				{
 					title: "Form Provider",
-					url: "/docs/components/form/form",
+					url: "/docs/components/form/hook-form",
 				},
 				{
 					title: "Checkbox",
@@ -127,17 +142,19 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar collapsible="icon" {...props} className="rounded-none">
-			<SidebarHeader>
+			<SidebarHeader className="border-b rounded-b-none border-border max-h-16">
 				<SidebarMenu>
 					<SidebarMenuItem>
-						<SidebarMenuButton size="lg">
-							<div className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg bg-black text-foreground">
-								<Image src="/assets/meta/favicon-32x32.png" width={32} height={32} alt="Supercharged Shadcn/UI Components" />
-							</div>
-							<div className="grid flex-1 text-left text-sm leading-tight">
-								<span className="truncate font-semibold">Supercharged Shadcn/UI</span>
-								<span className="truncate font-semibold">Components</span>
-							</div>
+						<SidebarMenuButton size="lg" asChild>
+							<Link href="/">
+								<div className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg bg-black text-foreground">
+									<Image src="/assets/meta/favicon-32x32.png" width={32} height={32} alt="Supercharged Shadcn/UI Components" />
+								</div>
+								<div className="grid flex-1 text-left text-sm leading-tight">
+									<span className="truncate font-semibold">Supercharged Shadcn/UI</span>
+									<span className="truncate font-semibold">Components</span>
+								</div>
+							</Link>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
@@ -146,8 +163,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				<SidebarGroup>
 					<SidebarGroupLabel>Getting Started</SidebarGroupLabel>
 					<SidebarMenu>
-						{data.gettingStarted.map((item) => (
-							<SidebarMenuItem>
+						{data.gettingStarted.map((item, index) => (
+							<SidebarMenuItem key={index}>
 								<SidebarMenuButton asChild>
 									<Link href={item.url}>
 										<span>{item.title}</span>

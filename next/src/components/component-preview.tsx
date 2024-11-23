@@ -11,11 +11,8 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 	const Code = (React.Children.toArray(children) as React.ReactElement[])[0];
 
-	// console.log(Code);
-
 	const Preview = React.useMemo(() => {
 		const Component = demoComponents[name]?.component;
-		console.log(Component);
 		if (!Component) {
 			return (
 				<p className="text-sm text-muted-foreground">

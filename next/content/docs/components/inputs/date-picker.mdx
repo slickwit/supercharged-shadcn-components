@@ -1,0 +1,41 @@
+---
+title: Date Picker
+description: A Date Picker component from shadcn/ui with modification.
+---
+
+<ComponentPreview
+  name="date-picker-demo"
+/>
+
+## Installation
+#### Install the following dependencies:
+```bash
+npm install date-fns
+```
+
+#### 1. Copy and paste the following code into your project.
+
+<ComponentSource name="date-picker" filePath="@/components/ui/date/date-picker.tsx"/>
+
+#### 2. Update your *`calendar`* component after installing shadcn *`date-picker`* component.
+```tsx
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
+	return (
+		<DayPicker
+            ...
+			components={{
+				IconLeft: () => <ChevronLeft className="h-4 w-4" />,
+				IconRight: () => <ChevronRight className="h-4 w-4" />,
+			}}
+			{...props}
+		/>
+	);
+}
+```
+
+## Shadcn
+This date-picker component is built on top of the excellent foundation provided by Shadcn/UI.
+
+For a deeper dive into the core concepts and building blocks, check out the original [Shadcn date-picker](https://ui.shadcn.com/docs/components/date-picker) component.

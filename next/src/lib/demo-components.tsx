@@ -47,6 +47,35 @@ export const demoComponents: Record<string, any> = {
 		})),
 		path: "src/components/ui/inputs/base/floating-label.tsx",
 	},
+	"time-picker-demo": {
+		component: lazy(() => import("@/components/demo/time-picker")),
+		path: "src/components/demo/time-picker.tsx",
+	},
+	"time-picker": {
+		component: null,
+		path: "src/components/ui/date/time-picker.tsx",
+	},
+	"time-picker-utils": {
+		component: null,
+		path: "src/components/ui/date/time-picker-utils.ts",
+	},
+	"date-picker-demo": {
+		component: lazy(() => import("@/components/demo/date-picker")),
+		path: "src/components/demo/date-picker.tsx",
+	},
+	"date-picker": {
+		component: null,
+		path: "src/components/ui/date/date-picker.tsx",
+	},
+	"date-range-picker-demo": {
+		component: lazy(() => import("@/components/demo/date-range-picker")),
+		path: "src/components/demo/date-range-picker.tsx",
+	},
+	"date-range-picker": {
+		component: null,
+		path: "src/components/ui/date/date-range.tsx",
+	},
+
 	"floating-textarea-demo": {
 		component: lazy(() => import("@/components/demo/floating-textarea")),
 		path: "src/components/demo/floating-textarea.tsx",
@@ -88,5 +117,62 @@ export const demoComponents: Record<string, any> = {
 	"file-thumbnail-utils": {
 		component: null,
 		path: "src/components/ui/file-thumbnail/utils.ts",
+	},
+	"rhf-form": {
+		component: null,
+		path: "src/components/ui/hook-form/form-provider.tsx",
+	},
+	"rhf-checkbox": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-checkbox.tsx",
+	},
+	"rhf-combobox": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-combobox.tsx",
+	},
+	"rhf-date-picker": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-date-picker.tsx",
+	},
+	"rhf-time-picker": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-time-picker.tsx",
+	},
+
+	"rhf-floating-input": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-floating-input.tsx",
+	},
+
+	"rhf-input": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-input.tsx",
+	},
+
+	"rhf-multi-select": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-multi-select.tsx",
+	},
+
+	"rhf-select": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-select.tsx",
+	},
+
+	"rhf-radio-group": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-radio-group.tsx",
+	},
+	"rhf-textarea": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-textarea.tsx",
+	},
+	"rhf-upload": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-upload.tsx",
+	},
+	"rhf-upload-multiple": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-upload-multiple.tsx",
 	},
 };

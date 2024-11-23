@@ -1,0 +1,46 @@
+---
+title: Date Picker - React Hook Form
+description: A Date Picker component that uses react-hook-form Controller.
+demo: rhf-date-picker-demo
+source: rhf-date-picker
+---
+
+## Installation
+### This component is dependent on [date-picker](/docs/components/inputs/date-picker) component. Please add that component first before adding this one.
+
+#### Install the following dependencies:
+```bash
+npm install date-fns
+```
+
+#### 1. Copy and paste the following code into your project.
+
+<ComponentSource name="rhf-date-picker" filePath="@/components/ui/hook-form/rhf-date-picker.tsx"/>
+
+#### 2. Update your *`calendar`* component after installing shadcn *`date-picker`* component.
+```tsx
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
+	return (
+		<DayPicker
+            ...
+			components={{
+				IconLeft: () => <ChevronLeft className="h-4 w-4" />,
+				IconRight: () => <ChevronRight className="h-4 w-4" />,
+			}}
+			{...props}
+		/>
+	);
+}
+```
+
+#### 3. Add this to your *`@/components/ui/hook-form/index.tsx`* file for easy import.
+```ts
+export { default as RHFDatePicker } from "./rhf-date-picker";
+```
+
+## Shadcn
+This date-picker component is built on top of the excellent foundation provided by Shadcn/UI.
+
+For a deeper dive into the core concepts and building blocks, check out the original [Shadcn date-picker](https://ui.shadcn.com/docs/components/date-picker) component.

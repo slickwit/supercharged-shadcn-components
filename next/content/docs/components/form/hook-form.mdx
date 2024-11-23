@@ -1,0 +1,38 @@
+---
+title: React Hook Form
+description: A form wrapper for react-hookform components.
+demo: hook-form-demo
+source: hook-form
+---
+
+## Installation
+#### 1. Copy and paste the following code into your project.
+
+<ComponentSource name="rhf-form" filePath="@/components/ui/hook-form/form-provider.tsx"/>
+
+#### 2. Add these to your *`@/components/ui/hook-form/index.tsx`* file for easy import. You can remove exports that you don't need.
+```ts
+//
+
+// ----------------------------------------------------------------------
+
+export { default } from "./form-provider";
+export { default as RHFInput } from "./rhf-input";
+export { default as RHFTextarea } from "./rhf-textarea";
+export { default as RHFFloatingInput } from "./rhf-floating-input";
+export { default as RHFSelect } from "./rfh-select";
+export { default as RHFMultiSelect } from "./rhf-multi-select";
+export { default as RHFCheckbox } from "./rhf-checkbox";
+export { default as RHFRadioGroup } from "./rhf-radio-group";
+
+//
+export { default as RHFCombobox } from "./rhf-combobox";
+
+//
+export { default as RHFDatePicker } from "./rhf-date-picker";
+export { default as RHFTimePicker } from "./rhf-time-picker";
+
+//
+export { RHFUpload } from "./rhf-upload";
+export { RHFUploadMultiple } from "./rhf-upload-multiple";
+```

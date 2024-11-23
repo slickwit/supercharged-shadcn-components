@@ -29,7 +29,7 @@ export default function Home() {
 				<div className="flex flex-col items-center justify-center gap-y-2">
 					<div className="flex items-center justify-center gap-x-3">
 						<Button asChild variant="outline" color="secondary" className="font-semibold">
-							<Link href="/docs">Get Started</Link>
+							<Link href="/docs/getting-started">Get Started</Link>
 						</Button>
 						<Button variant="outline" color="secondary" className="font-semibold">
 							<Github />

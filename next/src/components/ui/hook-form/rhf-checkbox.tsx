@@ -45,7 +45,10 @@ export default function CustomRHFCheckbox<TFieldValues extends FieldValues>({
 					<div className={cn("flex items-center space-x-1.5", checkboxContainerClass)}>
 						<Checkbox id={other.id ?? paramCase(name)} {...fields} {...other} onCheckedChange={onChange} checked={value} />
 						{!!label && (
-							<Label {...labelProps} className={cn("h-4", labelProps?.className)} htmlFor={other.id ?? paramCase(name)}>
+							<Label
+								{...labelProps}
+								className={cn("h-4", !!error && "text-error", labelProps?.className)}
+								htmlFor={other.id ?? paramCase(name)}>
 								{label}
 							</Label>
 						)}

@@ -62,6 +62,7 @@ export function RHFUpload<TFieldValues extends FieldValues>({
 				<Upload
 					multiple={false}
 					file={field.value}
+					error={!!error}
 					helperText={
 						(!!error || !!helperText) && (
 							<div className="mt-4 space-y-3">
