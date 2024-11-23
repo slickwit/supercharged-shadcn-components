@@ -2,7 +2,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { DatePicker } from "@/components/ui/date/date-picker";
-import { FloatingLabelButon } from "@/components/ui/buttons";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { Calendar } from "@/components/ui/calendar";
 
 // ----------------------------------------------------------------------

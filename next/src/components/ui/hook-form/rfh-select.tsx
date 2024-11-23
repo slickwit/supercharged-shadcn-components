@@ -4,7 +4,7 @@ import { Controller, type FieldPath, type FieldValues, useFormContext } from "re
 import { cn } from "@/lib/utils";
 import { Select, SelectContent, SelectItem } from "@/components/ui/select";
 import { Trigger } from "@radix-ui/react-select";
-import { FloatingLabelButon } from "../buttons";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { ChevronsUpDown } from "lucide-react";
 
 // ----------------------------------------------------------------------

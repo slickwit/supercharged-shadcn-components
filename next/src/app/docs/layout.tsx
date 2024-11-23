@@ -1,7 +1,6 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import AppHeader from "@/layout/app-header";
 import { AppSidebar } from "@/layout/app-sidebar";
-import "highlight.js/styles/atom-one-dark.css";
 
 // ----------------------------------------------------------------------
 

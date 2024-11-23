@@ -2,7 +2,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { FloatingLabelTextArea } from "@/components/ui/inputs";
+import { FloatingLabelTextArea } from "@/components/ui/inputs/floating-label-textarea";
 
 // ----------------------------------------------------------------------
 

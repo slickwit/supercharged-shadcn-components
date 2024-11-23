@@ -1,7 +1,8 @@
 "use client";
 import { useCallback } from "react";
 import { FieldPath, Controller, FieldValues, useFormContext } from "react-hook-form";
-import Upload, { type FileWithPathAndPreview } from "@/components/ui/upload";
+import { Upload } from "@/components/ui/upload/upload";
+import type { FileWithPathAndPreview } from "@/components/ui/upload/utils";
 import { type FileWithPath } from "react-dropzone";
 
 // ----------------------------------------------------------------------

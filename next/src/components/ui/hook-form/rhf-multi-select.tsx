@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { FloatingLabelButon } from "@/components/ui/buttons";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { ChevronsUpDown, Square, SquareCheckBig } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 

@@ -17,7 +17,7 @@ export function rehypeComponent() {
 					const demo = demoComponents[name];
 					const src = demo?.path;
 
-					let source = fs.readFileSync(src, "utf8");
+					const source = fs.readFileSync(src, "utf8");
 					node.children?.push(
 						u("element", {
 							tagName: "pre",

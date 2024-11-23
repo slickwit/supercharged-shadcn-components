@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import * as React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -6,7 +5,6 @@ import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -68,7 +66,7 @@ const components = {
 		<td className={cn("px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
 	),
 	pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
-		<pre className={cn("max-h-[650px] overflow-x-auto rounded-lg border pl-3 py-4 bg-zinc-800", className)} {...props} />
+		<pre className={cn("max-h-[650px] overflow-x-auto rounded-lg border pl-3 py-4 bg-[#24292e]", className)} {...props} />
 	),
 	code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
 		<code className={cn("relative rounded font-mono text-sm", className)} {...props} />

@@ -19,6 +19,7 @@ npm i react-dropzone framer-motion numeral
 <br />
 *`preview-multi-file.tsx`*
 <ComponentSource name="preview-multi-file" filePath="@/components/ui/upload/preview-multi-file.tsx"/>
+<br />
 **You can create your own transition on *`preview-multi-file`* or copy this transition.**
 ```tsx
 const varTranEnter = (props: { durationIn?: number; easeIn?: number }) => {
@@ -50,7 +51,7 @@ const inUp = {
 }
 ```
 <br/>
-**The *`fData`* can be placed in *`@/lib/format-number.ts`* **
+**The *`fData`* can be placed in *`@/lib/format-number.ts`*.**
 ```tsx
 export function fData(number: number) {
 	const format = number ? numeral(number).format("0.0 b") : "";
@@ -78,3 +79,13 @@ export function fData(number: number) {
 <br />
 *`utils.ts`*
 <ComponentSource name="file-thumbnail-utils" filePath="@/components/ui/file-thumbnail/utils.ts"/>
+
+#### 4. For the  file thumbnail, you can download some svg icon and add to your `public/assets/icons/files` directory.
+<br/>
+```tsx
+// Update the following...
+// base on your svg icon file names.
+const iconUrl = (icon: string) => `/assets/icons/files/${icon}.svg`;
+function fileThumb(fileUrl: string)
+type FileTypes
+```

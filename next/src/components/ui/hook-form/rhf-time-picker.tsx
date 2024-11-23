@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
-import { FloatingLabelButon } from "@/components/ui/buttons";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import TimePicker from "../date/time-picker";
 import { getString12HourTime, getStringTime, Period } from "../date/time-picker-utils";
 

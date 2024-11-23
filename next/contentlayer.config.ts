@@ -1,4 +1,3 @@
-import { getHighlighter } from "@shikijs/compat";
 import { rehypeComponent } from "@/lib/rehype-components";
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -66,7 +65,6 @@ export default makeSource({
 				rehypePrettyCode,
 				{
 					theme: "github-dark",
-					getHighlighter,
 					onVisitLine(node: UnistNode) {
 						// Prevent lines from collapsing in `display: grid` mode, and allow empty
 						// lines to be copy/pasted

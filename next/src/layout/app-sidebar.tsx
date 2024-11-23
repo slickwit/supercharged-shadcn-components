@@ -1,11 +1,25 @@
 "use client";
-
 import * as React from "react";
-import { AudioWaveform, BookOpen, Bot, Command, Frame, GalleryVerticalEnd, Map, PieChart, Settings2, SquareTerminal } from "lucide-react";
+import {
+	AudioWaveform,
+	BookOpen,
+	Bot,
+	Command,
+	Frame,
+	GalleryVerticalEnd,
+	Map,
+	PieChart,
+	Settings2,
+	SquareDot,
+	SquareTerminal,
+	Upload,
+} from "lucide-react";
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupLabel,
 	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton,
@@ -13,135 +27,99 @@ import {
 	SidebarRail,
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
-import { NavProjects } from "./nav-projects";
 import Link from "next/link";
+import BuyMeCoffee from "@/components/buy-me-coffee";
+import Image from "next/image";
 
 // This is sample data.
 const data = {
-	user: {
-		name: "shadcn",
-		email: "m@example.com",
-		avatar: "/avatars/shadcn.jpg",
-	},
-	teams: [
+	gettingStarted: [
 		{
-			name: "Acme Inc",
-			logo: GalleryVerticalEnd,
-			plan: "Enterprise",
-		},
-		{
-			name: "Acme Corp.",
-			logo: AudioWaveform,
-			plan: "Startup",
-		},
-		{
-			name: "Evil Corp.",
-			logo: Command,
-			plan: "Free",
+			title: "Introduction",
+			url: "/docs/getting-started",
 		},
 	],
 	navMain: [
 		{
-			title: "Playground",
+			title: "Buttons",
 			url: "#",
-			icon: SquareTerminal,
+			icon: SquareDot,
 			isActive: true,
 			items: [
 				{
-					title: "History",
-					url: "#",
+					title: "Button",
+					url: "/docs/components/buttons/button",
 				},
 				{
-					title: "Starred",
-					url: "#",
-				},
-				{
-					title: "Settings",
-					url: "#",
+					title: "Floating Button",
+					url: "/docs/components/buttons/floating-button",
 				},
 			],
 		},
 		{
-			title: "Models",
-			url: "#",
-			icon: Bot,
-			items: [
-				{
-					title: "Genesis",
-					url: "#",
-				},
-				{
-					title: "Explorer",
-					url: "#",
-				},
-				{
-					title: "Quantum",
-					url: "#",
-				},
-			],
+			title: "Upload",
+			url: "/docs/components/upload",
+			icon: Upload,
 		},
 		{
-			title: "Documentation",
+			title: "Hook Form",
 			url: "#",
 			icon: BookOpen,
+			isActive: true,
 			items: [
 				{
-					title: "Introduction",
-					url: "#",
+					title: "Form Provider",
+					url: "/docs/components/form/form",
 				},
 				{
-					title: "Get Started",
-					url: "#",
+					title: "Checkbox",
+					url: "/docs/components/form/rhf-checkbox",
 				},
 				{
-					title: "Tutorials",
-					url: "#",
+					title: "Combobox",
+					url: "/docs/components/form/rhf-combobox",
 				},
 				{
-					title: "Changelog",
-					url: "#",
+					title: "Date Picker",
+					url: "/docs/components/form/rhf-date-picker",
+				},
+				{
+					title: "Time Picker",
+					url: "/docs/components/form/rhf-time-picker",
+				},
+				{
+					title: "Floating Input",
+					url: "/docs/components/form/rhf-floating-input",
+				},
+				{
+					title: "Input",
+					url: "/docs/components/form/rhf-input",
+				},
+				{
+					title: "Multi Select",
+					url: "/docs/components/form/rhf-multi-select",
+				},
+				{
+					title: "Select",
+					url: "/docs/components/form/rhf-select",
+				},
+				{
+					title: "Radio Group",
+					url: "/docs/components/form/rhf-radio-group",
+				},
+				{
+					title: "Textarea",
+					url: "/docs/components/form/rhf-textarea",
+				},
+				{
+					title: "Upload",
+					url: "/docs/components/form/rhf-upload",
+				},
+				{
+					title: "Upload Multiple",
+					url: "/docs/components/form/rhf-upload-multiple",
 				},
 			],
-		},
-		{
-			title: "Settings",
-			url: "#",
-			icon: Settings2,
-			items: [
-				{
-					title: "General",
-					url: "#",
-				},
-				{
-					title: "Team",
-					url: "#",
-				},
-				{
-					title: "Billing",
-					url: "#",
-				},
-				{
-					title: "Limits",
-					url: "#",
-				},
-			],
-		},
-	],
-	projects: [
-		{
-			name: "Design Engineering",
-			url: "#",
-			icon: Frame,
-		},
-		{
-			name: "Sales & Marketing",
-			url: "#",
-			icon: PieChart,
-		},
-		{
-			name: "Travel",
-			url: "#",
-			icon: Map,
 		},
 	],
 };
@@ -153,8 +131,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton size="lg">
-							<div className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg bg-primary text-foreground">
-								<GalleryVerticalEnd className="size-4" />
+							<div className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg bg-black text-foreground">
+								<Image src="/assets/meta/favicon-32x32.png" width={32} height={32} alt="Supercharged Shadcn/UI Components" />
 							</div>
 							<div className="grid flex-1 text-left text-sm leading-tight">
 								<span className="truncate font-semibold">Supercharged Shadcn/UI</span>
@@ -165,15 +143,31 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				</SidebarMenu>
 			</SidebarHeader>
 			<SidebarContent>
+				<SidebarGroup>
+					<SidebarGroupLabel>Getting Started</SidebarGroupLabel>
+					<SidebarMenu>
+						{data.gettingStarted.map((item) => (
+							<SidebarMenuItem>
+								<SidebarMenuButton asChild>
+									<Link href={item.url}>
+										<span>{item.title}</span>
+									</Link>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+						))}
+					</SidebarMenu>
+				</SidebarGroup>
 				<NavMain items={data.navMain} />
-				<NavProjects projects={data.projects} />
 			</SidebarContent>
 			<SidebarFooter>
-				<div className="text-center text-xs italic text-muted-foreground truncate">
-					<p className="">Powered By:</p>
-					<Link href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">
-						shadcn/ui
-					</Link>
+				<div className="flex flex-col items-center">
+					<BuyMeCoffee className="mb-3" />
+					<div className="text-center text-xs italic text-muted-foreground truncate">
+						<p className="">Powered By:</p>
+						<Link href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">
+							shadcn/ui
+						</Link>
+					</div>
 				</div>
 			</SidebarFooter>
 			<SidebarRail />

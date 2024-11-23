@@ -1,7 +1,7 @@
 "use client";
 import type { ComponentPropsWithoutRef, HTMLAttributes } from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
-import { FloatingLabelInput } from "@/components/ui/inputs";
+import { FloatingLabelInput } from "@/components/ui/inputs/floating-label-input";
 import { cn } from "@/lib/utils";
 
 // ----------------------------------------------------------------------

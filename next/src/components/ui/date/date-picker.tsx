@@ -3,7 +3,8 @@ import { format } from "date-fns";
 import { CalendarDaysIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { FloatingLabelButon, IconButton } from "@/components/ui/buttons";
+import { IconButton } from "@/components/ui/buttons/icon-button";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ComponentPropsWithoutRef } from "react";

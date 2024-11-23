@@ -1,7 +1,9 @@
 "use client";
 import { CalendarDaysIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button, FloatingLabelButon, IconButton } from "@/components/ui/buttons";
+import { Button } from "@/components/ui/buttons/button";
+import { IconButton } from "@/components/ui/buttons/icon-button";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ComponentPropsWithoutRef } from "react";

@@ -32,7 +32,7 @@ export function CustomComponentPreview({ source, children, rawSource }: CustomCo
 					</TabsContent>
 					<TabsContent
 						value="code"
-						className="border border-input rounded-md relative [&_code]:relative [&_code]:rounded [&_code]:font-mono [&_code]:text-sm [&_pre]:max-h-[650px] [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:border [&_pre]:pl-3 [&_pre]:py-4 [&_pre]:bg-zinc-800">
+						className="border border-input rounded-md relative [&_code]:relative [&_code]:rounded [&_code]:font-mono [&_code]:text-sm [&_pre]:max-h-[650px] [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:border [&_pre]:pl-3 [&_pre]:py-4 [&_pre]:bg-[#24292e]">
 						<CopyCode text={rawSource} className="absolute right-5 top-3 z-[60]" />
 						{source}
 					</TabsContent>

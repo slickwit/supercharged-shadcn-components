@@ -6,7 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DropdownMenuLabel } from "@/components/ui/dropdown-menu";
-import { FloatingLabelButon } from "../buttons";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 
 // ----------------------------------------------------------------------
 

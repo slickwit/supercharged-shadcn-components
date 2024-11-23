@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Button, FloatingLabelButon, IconButton } from "@/components/ui/buttons";
+import { IconButton } from "@/components/ui/buttons/icon-button";
+import { Button } from "@/components/ui/buttons/button";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import { Clock4Icon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Period, TimePickerType, getArrowByType, getDateByType, setDateByType, display12HourValue } from "./time-picker-utils";

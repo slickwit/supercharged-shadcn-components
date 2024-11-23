@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { Controller, type FieldPath, type FieldValues, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
-import { CustomInput } from "@/components/ui/inputs/custom/custom-input";
+import { CustomInput } from "@/components/ui/inputs/base/floating-input";
 
 // ----------------------------------------------------------------------
 

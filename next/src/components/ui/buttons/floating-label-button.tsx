@@ -35,7 +35,7 @@ const FloatingLabelButon = React.forwardRef<HTMLButtonElement, FloatingLabelButo
 				const minW = !!startIcon || !!endIcon ? labelRef.current.clientWidth + 24 : labelRef.current.clientWidth;
 				setBtnMinWidth(minW);
 			}
-		}, []);
+		}, [startIcon, endIcon]);
 
 		return (
 			<Comp
