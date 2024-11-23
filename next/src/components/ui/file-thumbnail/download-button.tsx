@@ -1,5 +1,5 @@
 import type { MouseEventHandler } from "react";
-import { IconButton } from "@/components/ui/buttons";
+import { IconButton } from "@/components/ui/buttons/icon-button";
 import { CircleArrowDown } from "lucide-react";
 
 // ----------------------------------------------------------------------

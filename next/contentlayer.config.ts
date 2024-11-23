@@ -20,6 +20,14 @@ export const Doc = defineDocumentType(() => ({
 		description: {
 			type: "string",
 		},
+		demo: {
+			type: "string",
+			required: false,
+		},
+		source: {
+			type: "string",
+			required: false,
+		},
 	},
 	computedFields: {
 		slug: {
@@ -49,7 +57,7 @@ export default makeSource({
 							return;
 						}
 
-						node.__rawString__ = codeEl.children?.[0].value;
+						node.__rawstring__ = codeEl.children?.[0].value;
 						node.__src__ = node.properties?.__src__;
 					}
 				});
@@ -77,7 +85,7 @@ export default makeSource({
 			() => (tree) => {
 				visit(tree, (node) => {
 					if (node?.type === "element" && node?.tagName === "div") {
-						if (!("data-rehype-pretty-code-fragment" in node.properties)) {
+						if (!("data-rehype-pretty-code-figure" in node.properties) || !("data-rehype-pretty-code-fragment" in node.properties)) {
 							return;
 						}
 
@@ -86,7 +94,7 @@ export default makeSource({
 							return;
 						}
 
-						preElement.properties["__rawString__"] = node.__rawString__;
+						preElement.properties["__rawstring__"] = node.__rawstring__;
 
 						if (node.__src__) {
 							preElement.properties["__src__"] = node.__src__;

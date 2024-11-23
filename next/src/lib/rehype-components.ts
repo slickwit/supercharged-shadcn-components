@@ -23,7 +23,7 @@ export function rehypeComponent() {
 							tagName: "pre",
 							properties: {
 								__src__: src,
-								__rawString__: source,
+								__rawstring__: source,
 							},
 							children: [
 								u("element", {

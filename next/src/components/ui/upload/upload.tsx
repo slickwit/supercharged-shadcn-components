@@ -1,9 +1,11 @@
+"use client";
 import { cn } from "@/lib/utils";
-import { Button, IconButton } from "@/components/ui/buttons";
+import { Button } from "@/components/ui/buttons/button";
+import { IconButton } from "@/components/ui/buttons/icon-button";
 import { CloudUpload, X } from "lucide-react";
 import { type Accept, type DropzoneOptions, useDropzone } from "react-dropzone";
 import { type HTMLAttributes } from "react";
-import { fileFormat } from "@/components/ui/file-thumbnail";
+import { fileFormat } from "@/components/ui/file-thumbnail/utils";
 
 import { ALLOWED_PREVIEW, type FileWithPathAndPreview } from "./utils";
 import RejectionFiles from "./rejection-files";
@@ -24,13 +26,13 @@ interface UploadProps extends DropzoneOptions {
 	file?: FileWithPathAndPreview | null | string;
 	onDelete?: () => any;
 
-	files?: FileWithPathAndPreview[] | null;
+	files?: (FileWithPathAndPreview | null | string)[];
 	onRemove?: (file: FileWithPathAndPreview | string, index: number) => any;
 	onRemoveAll?: () => any;
 	onUpload?: () => void;
 }
 
-export function Upload(props: UploadProps) {
+const Upload = (props: UploadProps) => {
 	const {
 		disabled,
 		multiple = false,
@@ -93,11 +95,11 @@ export function Upload(props: UploadProps) {
 			<div
 				{...getRootProps()}
 				className={cn(
-					"min-h-[300px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 border border-dashed border-input transition-all hover:opacity-80",
+					"min-h-[200px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 border border-dashed border-input transition-all hover:opacity-80",
 					{
 						"opacity-80": isDragActive,
 						"pointer-events-none opacity-50": disabled,
-						"text-error bg-error bg-error/12": hasError || (!!fileRejections.length && files?.length === 0),
+						"text-error bg-error/10 dark:bg-error/5 border-error/35": hasError || (!!fileRejections.length && files?.length === 0),
 						"h-[400px] bg-transparent": hasFile && isFileAllowedPreview,
 					},
 				)}>
@@ -120,4 +122,8 @@ export function Upload(props: UploadProps) {
 			{!!helperText && helperText}
 		</div>
 	);
-}
+};
+
+Upload.displayName = "Upload";
+
+export { Upload, type UploadProps };

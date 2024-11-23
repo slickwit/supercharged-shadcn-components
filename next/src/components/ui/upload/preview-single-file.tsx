@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ALLOWED_PREVIEW, type FileWithPathAndPreview } from "./utils";
-import { fileFormat as checkFileFormat } from "@/components/ui/file-thumbnail";
+import { fileFormat as checkFileFormat } from "@/components/ui/file-thumbnail/utils";
 import UploadPlaceholder from "./upload-placeholder";
 
 interface SinglePreviewProps {

@@ -1,0 +1,80 @@
+---
+title: Upload
+description: Upload component using react-dropzone.
+demo: upload-demo
+source: upload
+---
+
+
+## Installation
+#### Install the following dependencies:
+```bash
+npm i react-dropzone framer-motion numeral
+```
+
+#### 1. Copy and paste the following code into your project.
+<ComponentSource name="upload" filePath="@/components/ui/upload/upload"/>
+
+#### 2. Create these **4** components *`preview-multi-file.tsx`*, *`preview-single-file.tsx`*, *`rejection-files.tsx`*, *`upload-placeholder.tsx`* inside the *`@/components/ui/upload`* directory.
+<br />
+*`preview-multi-file.tsx`*
+<ComponentSource name="preview-multi-file" filePath="@/components/ui/upload/preview-multi-file.tsx"/>
+**You can create your own transition on *`preview-multi-file`* or copy this transition.**
+```tsx
+const varTranEnter = (props: { durationIn?: number; easeIn?: number }) => {
+	const duration = props?.durationIn || 0.64;
+	const ease = props?.easeIn || [0.43, 0.13, 0.23, 0.96];
+
+	return { duration, ease };
+};
+
+const varTranExit = (props: { durationOut?: number; easeOut?: number }) => {
+	const duration = props?.durationOut || 0.48;
+	const ease = props?.easeOut || [0.43, 0.13, 0.23, 0.96];
+
+	return { duration, ease };
+};
+
+const inUp = {
+    initial: { y: distance, opacity: 0 },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: varTranEnter({ durationIn, easeIn }),
+    },
+    exit: {
+        y: distance,
+        opacity: 0,
+        transition: varTranExit({ durationOut, easeOut }),
+    },
+}
+```
+<br/>
+**The *`fData`* can be placed in *`@/lib/format-number.ts`* **
+```tsx
+export function fData(number: number) {
+	const format = number ? numeral(number).format("0.0 b") : "";
+
+	return result(format, ".0");
+} 
+```
+<br />
+*`preview-single-file.tsx`*
+<ComponentSource name="preview-single-file" filePath="@/components/ui/upload/preview-single-file.tsx"/>
+<br />
+*`rejection-files.tsx`*
+<ComponentSource name="rejection-files" filePath="@/components/ui/upload/rejection-files.tsx"/>
+<br />
+*`upload-placeholder.tsx`*
+<ComponentSource name="upload-placeholder" filePath="@/components/ui/upload/upload-placeholder.tsx"/>
+
+#### 3. Now, create a  directory inside *`components/ui`* named *`file-thumbnail`*, create and copy & paste these files *`file-thumbnail.tsx`*, *`download-button.tsx`*, *`utils.ts`*.
+<br />
+*`file-thumbnail.tsx`*
+<ComponentSource name="file-thumbnail" filePath="@/components/ui/file-thumbnail/file-thumbnail.tsx"/>
+<br/>
+*`download-button.tsx`*
+<ComponentSource name="download-button" filePath="@/components/ui/file-thumbnail/download-button.tsx"/>
+<br />
+*`utils.ts`*
+<ComponentSource name="file-thumbnail-utils" filePath="@/components/ui/file-thumbnail/utils.ts"/>

@@ -1,4 +1,4 @@
-import { FileWithPath } from "react-dropzone";
+import { type FileWithPath } from "react-dropzone";
 
 // ----------------------------------------------------------------------
 

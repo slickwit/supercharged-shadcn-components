@@ -57,4 +57,36 @@ export const demoComponents: Record<string, any> = {
 		})),
 		path: "src/components/ui/inputs/floating-label-textarea.tsx",
 	},
+	upload: {
+		component: null,
+		path: "src/components/ui/upload/upload.tsx",
+	},
+	"preview-multi-file": {
+		component: null,
+		path: "src/components/ui/upload/preview-multi-file.tsx",
+	},
+	"preview-single-file": {
+		component: null,
+		path: "src/components/ui/upload/preview-single-file.tsx",
+	},
+	"rejection-files": {
+		component: null,
+		path: "src/components/ui/upload/rejection-files.tsx",
+	},
+	"upload-placeholder": {
+		component: null,
+		path: "src/components/ui/upload/rejection-files.tsx",
+	},
+	"file-thumbnail": {
+		component: null,
+		path: "src/components/ui/file-thumbnail/file-thumbnail.tsx",
+	},
+	"download-button": {
+		component: null,
+		path: "src/components/ui/file-thumbnail/download-button.tsx",
+	},
+	"file-thumbnail-utils": {
+		component: null,
+		path: "src/components/ui/file-thumbnail/utils.ts",
+	},
 };

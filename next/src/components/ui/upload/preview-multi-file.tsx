@@ -1,18 +1,19 @@
 import type { FileWithPathAndPreview } from "./utils";
-
 import { m, AnimatePresence } from "framer-motion";
-import { varFade } from "@/components/ui/animate";
-import FileThumbnail, { fileData } from "@/components/ui/file-thumbnail";
-import { IconButton } from "@/components/ui/buttons";
 import { fData } from "@/lib/format-number";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
+
+import { IconButton } from "@/components/ui/buttons/icon-button";
+import { varFade } from "@/components/ui/animate/variants/fade";
+import FileThumbnail from "@/components/ui/file-thumbnail/file-thumbnail";
+import { fileData } from "@/components/ui/file-thumbnail/utils";
 
 // ----------------------------------------------------------------------
 
 interface MultiFilePreviewProps {
 	thumbnail?: boolean;
-	files: FileWithPathAndPreview[] | string[];
+	files: (FileWithPathAndPreview | null | string)[];
 	onRemove?: (file: FileWithPathAndPreview | string, index: number) => any;
 	className?: string;
 }
@@ -20,7 +21,8 @@ interface MultiFilePreviewProps {
 export default function MultiFilePreview({ thumbnail, files, onRemove, className }: MultiFilePreviewProps) {
 	return (
 		<AnimatePresence initial={false}>
-			{files?.map((file, idx) => {
+			{files.map((file, idx) => {
+				if (!file) return null;
 				const { name = "", size = 0 } = fileData(file);
 
 				const isNotFormatFile = typeof file === "string";

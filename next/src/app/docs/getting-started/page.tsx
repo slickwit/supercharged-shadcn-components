@@ -1,7 +1,9 @@
 "use client";
-import { Button, FloatingLabelButon } from "@/components/ui/buttons";
+import { Button } from "@/components/ui/buttons/button";
+import { FloatingLabelButon } from "@/components/ui/buttons/floating-label-button";
 import FormProvider from "@/components/ui/hook-form/form-provider";
-import { FloatingLabelInput, FloatingLabelTextArea } from "@/components/ui/inputs";
+import { FloatingLabelInput } from "@/components/ui/inputs/floating-label-input";
+import { FloatingLabelTextArea } from "@/components/ui/inputs/floating-label-textarea";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";

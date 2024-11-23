@@ -11,9 +11,11 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 	const Code = (React.Children.toArray(children) as React.ReactElement[])[0];
 
+	// console.log(Code);
+
 	const Preview = React.useMemo(() => {
 		const Component = demoComponents[name]?.component;
-
+		console.log(Component);
 		if (!Component) {
 			return (
 				<p className="text-sm text-muted-foreground">
@@ -29,7 +31,7 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 		if (typeof Code?.props["data-rehype-pretty-code-fragment"] !== "undefined") {
 			const [RawCode] = React.Children.toArray(Code.props.children) as React.ReactElement[];
 
-			return RawCode?.props?.value || RawCode?.props?.__rawString__ || null;
+			return RawCode?.props?.value || RawCode?.props?.__rawstring__ || null;
 		}
 	}, [Code]);
 
@@ -45,7 +47,7 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 						<div className="w-full flex justify-end">
 							<CopyCode text={codeString} />
 						</div>
-						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 max-w-[680px] w-full mx-auto pb-7">
+						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 w-full mx-auto px-10 pb-7">
 							<React.Suspense
 								fallback={
 									<div className="flex w-full items-center justify-center text-sm text-muted-foreground">Loading...</div>

@@ -21,7 +21,7 @@ export function ComponentSource({ children, className, filePath }: ComponentSour
 		<div className="relative">
 			<div className="absolute right-2.5 top-1.5 flex items-center gap-x-2 z-[60]">
 				{!!filePath && <span className="text-xs italic text-gray-400">{filePath}</span>}
-				{!!Code?.props?.__rawString__ && <CopyCode className="size-6" text={Code?.props?.__rawString__} />}
+				{!!Code?.props?.__rawstring__ && <CopyCode className="size-6" text={Code?.props?.__rawstring__} />}
 			</div>
 			<Collapsible open={open.value} onOpenChange={open.setValue}>
 				<div className={cn("relative overflow-hidden", className)}>

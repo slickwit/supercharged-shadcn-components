@@ -2,7 +2,7 @@ import type { FileRejection } from "react-dropzone";
 import type { FileWithPathAndPreview } from "./utils";
 
 import { fData } from "@/lib/format-number";
-import { fileData } from "@/components/ui/file-thumbnail";
+import { fileData } from "@/components/ui/file-thumbnail/utils";
 
 // ----------------------------------------------------------------------
 
