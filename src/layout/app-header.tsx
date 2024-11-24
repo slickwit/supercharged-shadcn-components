@@ -1,10 +1,13 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { DarkModeToggle } from "./darkmode-toggle";
 import { Searchbar } from "./searchbar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SIDEBAR_WIDTH, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
+import Link from "next/link";
 import { Fragment } from "react";
+import { Github } from "lucide-react";
 
 // ----------------------------------------------------------------------
 
@@ -54,6 +57,11 @@ export default function AppHeader({ links }: AppHeaderProps) {
 				</div>
 				<div className="flex gap-3">
 					<Searchbar />
+					<Button asChild variant="outline" size="icon">
+						<Link href="https://github.com/slickwit/supercharged-shadcn-components" target="_blank" rel="noopener noreferrer">
+							<Github />
+						</Link>
+					</Button>
 					<DarkModeToggle />
 				</div>
 			</div>

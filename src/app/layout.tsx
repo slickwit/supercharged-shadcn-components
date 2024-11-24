@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import ProgressBarProvider from "@/components/progress-bar";
 import { env } from "@/env";
+import Script from "next/script";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -32,6 +33,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				<Script id="color-presets" strategy="beforeInteractive">
+					{`(function() {const preset = JSON.parse(localStorage.getItem("settings"))?.state?.themeColorPresets; if (preset){document.documentElement.setAttribute("data-theme", preset);}})();`}
+				</Script>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
 					<ProgressBarProvider>{children}</ProgressBarProvider>
 				</ThemeProvider>
