@@ -1,145 +1,25 @@
 "use client";
 import * as React from "react";
-import { BookOpen, Ellipsis, SquareDot, Upload } from "lucide-react";
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupLabel,
 	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 	SidebarRail,
+	useSidebar,
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import Link from "next/link";
 import BuyMeCoffee from "@/components/buy-me-coffee";
 import Image from "next/image";
-
-// This is sample data.
-const data = {
-	gettingStarted: [
-		{
-			title: "Introduction",
-			url: "/docs/getting-started",
-		},
-	],
-	navMain: [
-		{
-			title: "Buttons",
-			url: "#",
-			icon: SquareDot,
-			isActive: true,
-			items: [
-				{
-					title: "Button",
-					url: "/docs/components/buttons/button",
-				},
-				{
-					title: "Floating Button",
-					url: "/docs/components/buttons/floating-button",
-				},
-			],
-		},
-		{
-			title: "Inputs",
-			url: "#",
-			icon: Ellipsis,
-			isActive: true,
-			items: [
-				{
-					title: "Floating Input",
-					url: "/docs/components/inputs/floating-input",
-				},
-				{
-					title: "Floating Textarea",
-					url: "/docs/components/inputs/floating-textarea",
-				},
-				{
-					title: "Date Picker",
-					url: "/docs/components/inputs/date-picker",
-				},
-				{
-					title: "Date Range Picker",
-					url: "/docs/components/inputs/date-range-picker",
-				},
-				{
-					title: "Time Picker",
-					url: "/docs/components/inputs/time-picker",
-				},
-			],
-		},
-		{
-			title: "Upload",
-			url: "/docs/components/upload",
-			icon: Upload,
-		},
-		{
-			title: "Hook Form",
-			url: "#",
-			icon: BookOpen,
-			isActive: true,
-			items: [
-				{
-					title: "Form Provider",
-					url: "/docs/components/form/hook-form",
-				},
-				{
-					title: "Checkbox",
-					url: "/docs/components/form/rhf-checkbox",
-				},
-				{
-					title: "Combobox",
-					url: "/docs/components/form/rhf-combobox",
-				},
-				{
-					title: "Date Picker",
-					url: "/docs/components/form/rhf-date-picker",
-				},
-				{
-					title: "Time Picker",
-					url: "/docs/components/form/rhf-time-picker",
-				},
-				{
-					title: "Floating Input",
-					url: "/docs/components/form/rhf-floating-input",
-				},
-				{
-					title: "Input",
-					url: "/docs/components/form/rhf-input",
-				},
-				{
-					title: "Multi Select",
-					url: "/docs/components/form/rhf-multi-select",
-				},
-				{
-					title: "Select",
-					url: "/docs/components/form/rhf-select",
-				},
-				{
-					title: "Radio Group",
-					url: "/docs/components/form/rhf-radio-group",
-				},
-				{
-					title: "Textarea",
-					url: "/docs/components/form/rhf-textarea",
-				},
-				{
-					title: "Upload",
-					url: "/docs/components/form/rhf-upload",
-				},
-				{
-					title: "Upload Multiple",
-					url: "/docs/components/form/rhf-upload-multiple",
-				},
-			],
-		},
-	],
-};
+import { useNavData } from "@/config/nav-data";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+	const { open } = useSidebar();
+	const navData = useNavData();
 	return (
 		<Sidebar collapsible="icon" {...props} className="rounded-none">
 			<SidebarHeader className="border-b rounded-b-none border-border max-h-16">
@@ -160,33 +40,35 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				</SidebarMenu>
 			</SidebarHeader>
 			<SidebarContent>
-				<SidebarGroup>
-					<SidebarGroupLabel>Getting Started</SidebarGroupLabel>
-					<SidebarMenu>
-						{data.gettingStarted.map((item, index) => (
-							<SidebarMenuItem key={index}>
-								<SidebarMenuButton asChild>
-									<Link href={item.url}>
-										<span>{item.title}</span>
-									</Link>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
-						))}
-					</SidebarMenu>
-				</SidebarGroup>
-				<NavMain items={data.navMain} />
+				{navData.map((nav) => (
+					<NavMain key={nav.title} items={nav.items} title={nav.title} />
+				))}
 			</SidebarContent>
-			<SidebarFooter>
-				<div className="flex flex-col items-center">
-					<BuyMeCoffee className="mb-3" />
-					<div className="text-center text-xs italic text-muted-foreground truncate">
-						<p className="">Powered By:</p>
-						<Link href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">
-							shadcn/ui
-						</Link>
+			{open ? (
+				<SidebarFooter>
+					<div className="flex flex-col items-center">
+						<BuyMeCoffee className="mb-3" />
+						<div className="text-center text-xs italic text-muted-foreground truncate">
+							<p>Powered By:</p>
+							<Link href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">
+								shadcn/ui
+							</Link>
+						</div>
 					</div>
-				</div>
-			</SidebarFooter>
+				</SidebarFooter>
+			) : (
+				<SidebarFooter>
+					<div className="flex flex-col items-center">
+						<BuyMeCoffee className="mb-3" src="/assets/bmc-logo-yellow.png" width={30} height={30} />
+						<div className="text-center text-[0.5rem] font-semibold italic text-muted-foreground truncate">
+							<p>Powered By:</p>
+							<Link href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">
+								shadcn/ui
+							</Link>
+						</div>
+					</div>
+				</SidebarFooter>
+			)}
 			<SidebarRail />
 		</Sidebar>
 	);

@@ -22,3 +22,8 @@ export function splitCase(str: string) {
 		.split(/(?=[A-Z])|_/)
 		.join(" ");
 }
+
+export function slugToTitle(str: string) {
+	const words = str.split("-");
+	return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}

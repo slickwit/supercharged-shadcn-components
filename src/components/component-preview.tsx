@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { demoComponents } from "@/lib/demo-components";
+import { demoComponents } from "@/config/demo-components";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CopyCode from "@/components/copy-code";
 

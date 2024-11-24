@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Mdx } from "@/components/mdx";
-import { customDemoComponents } from "@/lib/custom-demo-components";
+import { customDemoComponents } from "@/config/custom-demo-components";
 import { allDocs } from "contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";

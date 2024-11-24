@@ -6,11 +6,12 @@ interface BuyMeCoffeeProps {
 	className?: string;
 	width?: number;
 	height?: number;
+	src?: string;
 }
-const BuyMeCoffee = ({ className, width = 135, height = 45 }: BuyMeCoffeeProps) => {
+const BuyMeCoffee = ({ className, width = 145, height = 45, src = "/assets/bmc-button.png" }: BuyMeCoffeeProps) => {
 	return (
 		<Link href="https://www.buymeacoffee.com/dykennethrx" target="_blank" className={className}>
-			<Image src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width={width} height={height} />
+			<Image src={src} alt="Buy Me A Coffee" width={width} height={height} />
 		</Link>
 	);
 };

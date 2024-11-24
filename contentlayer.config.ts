@@ -1,4 +1,4 @@
-import { rehypeComponent } from "@/lib/rehype-components";
+import { rehypeComponent } from "@/config/rehype-components";
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
