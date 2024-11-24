@@ -19,9 +19,13 @@ const defaultSettings: ISettings = {
 
 export const useSettingStore = create<ISettings & ISettingActions>()(
 	persist(
-		(set) => ({
+		(set, get) => ({
 			...defaultSettings,
 			setHasHydrated: (state) => {
+				const preset = get().themeColorPresets;
+				if (!!document && document?.documentElement?.getAttribute?.("data-theme") !== preset) {
+					document.documentElement.setAttribute("data-theme", preset);
+				}
 				set({
 					_hasHydrated: state,
 				});

@@ -1,6 +1,14 @@
+import { allDocs } from "contentlayer/generated";
 import AppHeader from "@/layout/app-header";
+import { Mdx } from "@/components/mdx";
 
 export default function Home() {
+	const doc = allDocs.find((d) => d._id === "docs/getting-started.mdx");
+
+	if (!doc) {
+		return null;
+	}
+
 	const links = [
 		{
 			name: "Docs",
@@ -14,7 +22,13 @@ export default function Home() {
 	return (
 		<>
 			<AppHeader links={links} />
-			<div className="container mx-auto p-4 mt-16"></div>
+			<div className="max-w-6xl">
+				<div className="space-y-2">
+					<h1 className="text-3xl font-bold tracking-tight">{doc.title}</h1>
+					<p className="text-muted-foreground">{doc.description}</p>
+				</div>
+				<Mdx code={doc.body.code} />
+			</div>
 		</>
 	);
 }

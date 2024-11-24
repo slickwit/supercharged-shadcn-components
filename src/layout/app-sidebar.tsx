@@ -28,7 +28,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 						<SidebarMenuButton size="lg" asChild>
 							<Link href="/">
 								<div className="flex aspect-square h-8 w-8 items-center justify-center rounded-lg bg-black text-foreground">
-									<Image src="/assets/meta/favicon-32x32.png" width={32} height={32} alt="Supercharged Shadcn/UI Components" />
+									<Image src="/favicon-32x32.png" width={32} height={32} alt="Supercharged Shadcn/UI Components" />
 								</div>
 								<div className="grid flex-1 text-left text-sm leading-tight">
 									<span className="truncate font-semibold">Supercharged Shadcn/UI</span>
@@ -45,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				))}
 			</SidebarContent>
 			{open ? (
-				<SidebarFooter>
+				<SidebarFooter className="pt-4">
 					<div className="flex flex-col items-center">
 						<BuyMeCoffee className="mb-3" />
 						<div className="text-center text-xs italic text-muted-foreground truncate">
@@ -57,7 +57,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 					</div>
 				</SidebarFooter>
 			) : (
-				<SidebarFooter>
+				<SidebarFooter className="pt-4">
 					<div className="flex flex-col items-center">
 						<BuyMeCoffee className="mb-3" src="/assets/bmc-logo-yellow.png" width={30} height={30} />
 						<div className="text-center text-[0.5rem] font-semibold italic text-muted-foreground truncate">

@@ -32,8 +32,8 @@ export default function DocsLayout({ children, ...props }: DocsLayoutProps) {
 		<>
 			<AppHeader links={links} />
 			<div className="container mx-auto px-4 py-4 pb-12 mt-20 flex justify-between">
-				<div className="max-w-[calc(100%_-_340px)]">{children}</div>
-				<div className="min-w-[340px] fixed right-0 top-0 border-l">
+				<div className="lg:max-w-[calc(100%_-_340px)]">{children}</div>
+				<div className="hidden lg:block min-w-[340px] fixed right-0 top-0 border-l">
 					<div className="mt-20 px-6 lg:px-10 py-4 h-svh">
 						<PresetsOptions />
 					</div>
