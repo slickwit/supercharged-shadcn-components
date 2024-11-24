@@ -31,9 +31,11 @@ export default function Home() {
 						<Button asChild variant="outline" color="secondary" className="font-semibold">
 							<Link href="/docs/getting-started">Get Started</Link>
 						</Button>
-						<Button variant="outline" color="secondary" className="font-semibold">
-							<Github />
-							GitHub
+						<Button asChild variant="outline" color="secondary" className="font-semibold">
+							<Link href="https://github.com/slickwit/supercharged-shadcn-components" target="_blank" rel="noopener noreferrer">
+								<Github />
+								GitHub
+							</Link>
 						</Button>
 					</div>
 					<Button variant="link" asChild className="underline font-semibold">
