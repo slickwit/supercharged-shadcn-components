@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import ThemeProvider from "@/components/theme-provider";
+import ProgressBarProvider from "@/components/progress-bar";
 import { env } from "@/env";
 
 const geistSans = localFont({
@@ -32,17 +33,7 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
-					{children}
-					{/* <AppNavbar /> */}
-					{/* <SidebarProvider>
-						<AppSidebar />
-						<div className="w-full">
-							<div className="w-full">
-								<AppNavbar />
-							</div>
-							<main className="flex flex-col flex-grow min-h-full py-16 px-1 lg:px-4 w-full container mx-auto">{children}</main>
-						</div>
-					</SidebarProvider> */}
+					<ProgressBarProvider>{children}</ProgressBarProvider>
 				</ThemeProvider>
 			</body>
 		</html>
