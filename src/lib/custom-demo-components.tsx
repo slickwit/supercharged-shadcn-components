@@ -31,32 +31,32 @@ export const customDemoComponents: Record<string, any> = {
 		component: lazy(() => import("@/components/demo/rhf-floating-input")),
 		path: "src/components/demo/rhf-floating-input.tsx",
 	},
-	"rhf-input": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-input.tsx",
+	"rhf-input-demo": {
+		component: lazy(() => import("@/components/demo/rhf-input")),
+		path: "src/components/demo/rhf-input.tsx",
 	},
-	"rhf-multi-select": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-multi-select.tsx",
+	"rhf-multi-select-demo": {
+		component: lazy(() => import("@/components/demo/rhf-multi-select")),
+		path: "src/components/demo/rhf-multi-select.tsx",
 	},
-	"rhf-select": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-select.tsx",
+	"rhf-select-demo": {
+		component: lazy(() => import("@/components/demo/rhf-select")),
+		path: "src/components/demo/rhf-select.tsx",
 	},
-	"rhf-radio-group": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-radio-group.tsx",
+	"rhf-radio-group-demo": {
+		component: lazy(() => import("@/components/demo/rhf-radio-group")),
+		path: "src/components/demo/rhf-radio-group.tsx",
 	},
-	"rhf-textarea": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-textarea.tsx",
+	"rhf-textarea-demo": {
+		component: lazy(() => import("@/components/demo/rhf-textarea")),
+		path: "src/components/demo/rhf-textarea.tsx",
 	},
-	"rhf-upload": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-upload.tsx",
+	"rhf-upload-demo": {
+		component: lazy(() => import("@/components/demo/rhf-upload")),
+		path: "src/components/demo/rhf-upload.tsx",
 	},
-	"rhf-upload-multiple": {
-		component: null,
-		path: "src/components/ui/hook-form/rhf-upload-multiple.tsx",
+	"rhf-upload-multiple-demo": {
+		component: lazy(() => import("@/components/demo/rhf-upload-multiple")),
+		path: "src/components/demo/rhf-upload-multiple.tsx",
 	},
 };

@@ -3,21 +3,21 @@ import FormProvider from "@/components/ui/hook-form/form-provider";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { RHFFloatingInput } from "@/components/ui/hook-form";
+import { RHFInput } from "@/components/ui/hook-form";
 import { Button } from "@/components/ui/buttons/button";
 
 // ----------------------------------------------------------------------
 
 const formSchema = z.object({
-	floatingInput: z.string().min(1),
+	input: z.string().min(1),
 });
 
 type TFormSchema = z.infer<typeof formSchema>;
 
 const defaultValues = {
-	floatingInput: "",
+	input: "",
 };
-export default function RHFFloatingInputDemo() {
+export default function RHFInputDemo() {
 	const methods = useForm<TFormSchema>({
 		resolver: zodResolver(formSchema),
 		defaultValues,
@@ -27,7 +27,7 @@ export default function RHFFloatingInputDemo() {
 	return (
 		<FormProvider {...methods} onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
 			<div className="max-w-72 w-full">
-				<RHFFloatingInput<TFormSchema> label="Floating Label" name="floatingInput" />
+				<RHFInput<TFormSchema> label="Input Label" name="input" />
 			</div>
 			<div className="mt-10 space-x-3">
 				<Button

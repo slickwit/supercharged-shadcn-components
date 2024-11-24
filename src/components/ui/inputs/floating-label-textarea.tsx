@@ -18,7 +18,7 @@ export type FloatingLabelTextAreaProps = TextareaProps & {
 const FloatingLabelTextArea = React.forwardRef<React.ElementRef<typeof FloatingTextArea>, React.PropsWithoutRef<FloatingLabelTextAreaProps>>(
 	({ id, label, error = false, className, ...props }, ref) => {
 		return (
-			<div className={cn("relative", { "text-error": error })}>
+			<div className={cn("relative", error && "[&>*]:text-error [&>fieldset]:border-error [&>fieldset]:dark:border-error")}>
 				<FloatingTextArea
 					ref={ref}
 					id={id}
@@ -34,10 +34,7 @@ const FloatingLabelTextArea = React.forwardRef<React.ElementRef<typeof FloatingT
 				</FloatingLabel>
 				<fieldset
 					className={cn(
-						"absolute peer-focus-visible:border-2 transition-all peer-focus-visible:border-primary inset-0 -top-[5px] border border-input/35 rounded-md m-0 py-0 text-left px-2 pointer-events-none min-w-0 peer-focus-visible:[&>legend]:max-w-full peer-placeholder-shown:[&>legend]:max-w-0",
-						{
-							"text-error border-error": !!error,
-						},
+						"absolute peer-focus-visible:border-2 transition-all peer-focus-visible:border-primary inset-0 -top-[5px] border dark:border-input/35 border-input/65 rounded-md m-0 py-0 text-left px-2 pointer-events-none min-w-0 peer-focus-visible:[&>legend]:max-w-full peer-placeholder-shown:[&>legend]:max-w-0",
 					)}>
 					<legend className="transition-all invisible whitespace-nowrap overflow-hidden w-auto max-w-full h-3 leading-4 text-xs font-normal p-0">
 						<span className="px-1 visible inline-block opacity-0">{label}</span>

@@ -55,7 +55,7 @@ const FloatingLabelButon = React.forwardRef<HTMLButtonElement, FloatingLabelButo
 				<span
 					ref={labelRef}
 					className={cn(
-						"absolute transition-all group-data-[value=true]:-translate-y-4 group-data-[value=true]:top-2 group-data-[value=true]:text-xs flex-grow flex-shrink-0",
+						"absolute text-muted-foreground transition-all group-data-[value=true]:-translate-y-4 group-data-[value=true]:top-2 group-data-[value=true]:text-xs flex-grow flex-shrink-0",
 						{
 							"group-data-[value=true]:-translate-x-1 translate-x-7": !!startIcon,
 						},

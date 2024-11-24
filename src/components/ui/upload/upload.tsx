@@ -95,11 +95,11 @@ const Upload = (props: UploadProps) => {
 			<div
 				{...getRootProps()}
 				className={cn(
-					"min-h-[200px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 border border-dashed border-input transition-all hover:opacity-80",
+					"min-h-[200px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 outline-2 outline-dashed outline-input/65 transition-all hover:opacity-80",
 					{
 						"opacity-80": isDragActive,
 						"pointer-events-none opacity-50": disabled,
-						"text-error bg-error/10 dark:bg-error/5 border-error/35": hasError || (!!fileRejections.length && files?.length === 0),
+						"text-error bg-error/10 dark:bg-error/5 outline-error/35": hasError || (!!fileRejections.length && files?.length === 0),
 						"h-[400px] bg-transparent": hasFile && isFileAllowedPreview,
 					},
 				)}>

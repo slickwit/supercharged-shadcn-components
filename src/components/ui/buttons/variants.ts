@@ -15,7 +15,7 @@ export const buttonVariants = cva(
 			{
 				variant: "outline",
 				color: "default",
-				className: "text-muted-foreground border-input/35 border",
+				className: "text-muted-foreground dark:border-input/35 border-input/65 border",
 			},
 			{
 				variant: "ghost",
@@ -25,7 +25,7 @@ export const buttonVariants = cva(
 			{
 				variant: "soft",
 				color: "default",
-				className: "text-common/95 dark:bg-accent/15 bg-accent/75 hover:bg-common/15 dark:hover:bg-accent/35 hover:text-common",
+				className: "text-common/95 dark:bg-accent/15 bg-accent/75 hover:bg-common/15 dark:hover:bg-accent/35 hover:text-foreground",
 			},
 			{
 				variant: "link",
@@ -72,7 +72,7 @@ export const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "secondary",
-				className: "text-secondary hover:bg-secondary/15",
+				className: "text-secondary hover:text-secondary hover:bg-secondary/15",
 			},
 			{
 				variant: "soft",

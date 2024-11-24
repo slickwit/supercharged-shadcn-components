@@ -6,7 +6,7 @@ export { default } from "./form-provider";
 export { default as RHFInput } from "./rhf-input";
 export { default as RHFTextarea } from "./rhf-textarea";
 export { default as RHFFloatingInput } from "./rhf-floating-input";
-export { default as RHFSelect } from "./rfh-select";
+export { default as RHFSelect } from "./rhf-select";
 export { default as RHFMultiSelect } from "./rhf-multi-select";
 export { default as RHFCheckbox } from "./rhf-checkbox";
 export { default as RHFRadioGroup } from "./rhf-radio-group";
