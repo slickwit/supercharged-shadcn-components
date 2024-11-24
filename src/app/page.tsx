@@ -11,7 +11,8 @@ export default function Home() {
 				<div className="text-center">
 					<h1 className="lg:text-5xl text-3xl font-bold lg:leading-loose">Supercharged Shadcn Components</h1>
 					<p className="lg:text-2xl text-xl font-semibold">
-						Accelerate your web development with our curated collection of ready-to-use components.
+						Effortlessly build modern React applications with pre-designed, reusable components. Inspired by the best in UI design,
+						we make forms simpler, smoother, and development faster—so you can focus on building great experiences.
 					</p>
 					<p className="lg:text-2xl text-xl font-semibold">Copy and paste into your apps</p>
 				</div>
