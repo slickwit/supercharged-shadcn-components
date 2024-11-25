@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 // ----------------------------------------------------------------------
 
 export const iconButtonVariants = cva(
-	"inline-flex items-center justify-center size-full relative box-border bg-transparent outline-none select-none text-center cursor-pointer flex-auto rounded-full overflow-visible leading-none appearance-none align-middle transition-colors [&>svg]:text-font-inherit disabled:pointer-events-none disabled:opacity-35",
+	"inline-flex items-center justify-center size-full relative box-border bg-transparent outline-none select-none text-center cursor-pointer flex-auto rounded-full overflow-visible leading-none appearance-none align-middle transition-colors disabled:pointer-events-none disabled:opacity-35",
 	{
 		variants: {
 			variant: {
@@ -27,10 +27,10 @@ export const iconButtonVariants = cva(
 				error: "",
 			},
 			size: {
-				xs: "p-1 text-md min-w-6 min-h-6 max-w-6 max-h-6",
-				sm: "p-1 text-lg min-w-8 min-h-8 max-w-8 max-h-8",
-				md: "p-2 text-2xl min-w-10 min-h-10 max-w-10 max-h-10",
-				lg: "p-3 text-3xl min-w-14 min-h-14 max-w-14 max-h-14",
+				xs: "p-1 text-md size-6",
+				sm: "p-1.5 text-lg size-8",
+				md: "p-1.5 text-2xl size-9",
+				lg: "p-3 text-3xl size-14",
 			},
 		},
 		compoundVariants: [

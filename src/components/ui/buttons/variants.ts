@@ -20,12 +20,13 @@ export const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "default",
-				className: "text-common dark:hover:bg-accent/15 hover:bg-accent",
+				className: "text-foreground dark:hover:bg-accent/15 hover:bg-accent",
 			},
 			{
 				variant: "soft",
 				color: "default",
-				className: "text-common/95 dark:bg-accent/15 bg-accent/75 hover:bg-common/15 dark:hover:bg-accent/35 hover:text-foreground",
+				className:
+					"text-foreground/95 dark:bg-accent/15 bg-accent/75 hover:bg-foreground/15 dark:hover:bg-accent/35 hover:text-foreground",
 			},
 			{
 				variant: "link",
