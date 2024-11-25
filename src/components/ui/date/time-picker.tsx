@@ -15,14 +15,25 @@ interface TimePickerProps {
 	buttonProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "label" | "value">;
 	label: string;
 	value: string;
-	date: Date | undefined;
-	setDate: (date: Date | undefined) => void;
+	date?: Date | null;
+	setDate: (date: Date | null) => void;
 	picker?: TimePickerType;
 	period: Period;
 	setPeriod: React.Dispatch<React.SetStateAction<Period>>;
+	onClear?: () => void;
 }
 
-export default function TimePicker({ picker = "12hours", buttonProps, label, value, date, setDate, period, setPeriod }: TimePickerProps) {
+export default function TimePicker({
+	picker = "12hours",
+	buttonProps,
+	label,
+	value,
+	date,
+	setDate,
+	period,
+	setPeriod,
+	onClear,
+}: TimePickerProps) {
 	const [open, setOpen] = React.useState(false);
 	const [localDate, setLocalDate] = React.useState(date ?? new Date(new Date().setHours(0, 0, 0, 0)));
 	const minuteRef = React.useRef<HTMLInputElement>(null);
@@ -30,7 +41,7 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 	const secondRef = React.useRef<HTMLInputElement>(null);
 	const periodRef = React.useRef<HTMLButtonElement>(null);
 
-	const handleLocalDateChange = (dateVal: Date | undefined) => {
+	const handleLocalDateChange = (dateVal: Date | null) => {
 		if (!!dateVal) {
 			setLocalDate(dateVal);
 		}
@@ -41,6 +52,13 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 			setDate(localDate);
 		}
 		setOpen(open);
+	};
+
+	const handleClear = () => {
+		if (!!onClear) {
+			onClear();
+			setOpen(false);
+		}
 	};
 
 	return (
@@ -59,13 +77,13 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 					)}
 					endIcon={
 						<IconButton size="md" asChild>
-							<Clock4Icon className="fill-common/12 stroke-common/80 !p-1.5 size-9 min-w-9 max-w-9 min-h-9 max-h-9 hover:bg-foreground/5" />
+							<Clock4Icon className="fill-foreground/12 stroke-foreground/90 hover:bg-foreground/5" />
 						</IconButton>
 					}
 				/>
 			</PopoverTrigger>
-			<PopoverContent className="max-w-64 w-full">
-				<div className="flex items-end gap-2">
+			<PopoverContent className={cn("min-w-64 w-[--radix-popper-anchor-width]", !!onClear && "pt-3 pb-0 px-0")}>
+				<div className={cn("flex items-center justify-between gap-2", !!onClear && "px-4")}>
 					<div className="grid gap-1 text-center">
 						<Label htmlFor="hours" className="text-xs">
 							Hours
@@ -120,6 +138,14 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 						/>
 					</div>
 				</div>
+				{!!onClear && (
+					<Button
+						variant="link"
+						onClick={handleClear}
+						className="w-full pb-0.5 pt-0.5 mt-2 h-auto hover:no-underline hover:bg-foreground/5 rounded-t-none">
+						Clear
+					</Button>
+				)}
 			</PopoverContent>
 		</Popover>
 	);
@@ -128,7 +154,7 @@ export default function TimePicker({ picker = "12hours", buttonProps, label, val
 export interface TimePickerInputProps extends React.ComponentPropsWithoutRef<typeof Input> {
 	picker: TimePickerType;
 	date: Date;
-	setDate: (date: Date | undefined) => void;
+	setDate: (date: Date | null) => void;
 	period?: Period;
 	onRightFocus?: () => void;
 	onLeftFocus?: () => void;
@@ -226,8 +252,8 @@ TimePickerInput.displayName = "TimePickerInput";
 export interface PeriodSelectorProps {
 	period: Period;
 	setPeriod: (m: Period) => void;
-	date: Date | undefined;
-	setDate: (date: Date | undefined) => void;
+	date: Date | null;
+	setDate: (date: Date | null) => void;
 	onRightFocus?: () => void;
 	onLeftFocus?: () => void;
 }
@@ -235,11 +261,15 @@ export interface PeriodSelectorProps {
 export const TimePeriodSelect = React.forwardRef<HTMLButtonElement, PeriodSelectorProps>(
 	({ period, setPeriod, date, setDate, onLeftFocus, onRightFocus }, ref) => {
 		const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+			e.preventDefault();
 			if (e.key === "ArrowRight") onRightFocus?.();
 			if (e.key === "ArrowLeft") onLeftFocus?.();
+			if (["ArrowUp", "ArrowDown"].includes(e.key)) {
+				togglePeriod();
+			}
 		};
 
-		const handleClick = () => {
+		const togglePeriod = () => {
 			setPeriod(period === "AM" ? "PM" : "AM");
 
 			if (date) {
@@ -253,8 +283,8 @@ export const TimePeriodSelect = React.forwardRef<HTMLButtonElement, PeriodSelect
 			<div className="flex items-center">
 				<Button
 					variant="outline"
-					onClick={handleClick}
-					className="text-common focus:ring-offset-0 focus:ring-2 ring-offset-background focus:ring-common h-9"
+					onClick={togglePeriod}
+					className="text-forground border-input hover:shadow-none focus:ring-offset-0 focus:ring-2 ring-offset-background focus:ring-forground h-9"
 					type="button"
 					ref={ref}
 					onKeyDown={handleKeyDown}>

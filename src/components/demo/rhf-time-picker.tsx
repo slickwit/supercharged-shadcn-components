@@ -29,10 +29,16 @@ export default function RHFTimePickerDemo() {
 	});
 
 	const handleSubmit = () => {};
+
 	return (
 		<FormProvider {...methods} onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
+			<div>
+				<p className="mb-4 text-sm text-foreground/80 italic">
+					Use arrow [Left, Right, Up, Down] to navigate `Hours, Minutes, Seconds, and Period` and its value.
+				</p>
+			</div>
 			<div className="max-w-72 w-full">
-				<RHFTimePicker<TFormSchema> name="time" label="Select A Time" />
+				<RHFTimePicker<TFormSchema> name="time" label="Select A Time" clearable />
 			</div>
 			<div className="mt-10 space-x-3">
 				<Button

@@ -44,7 +44,7 @@ const FloatingLabelButon = React.forwardRef<HTMLButtonElement, FloatingLabelButo
 				style={{
 					minWidth: `calc(1.5rem + ${btnMinWidth}px)`,
 				}}
-				className={cn(buttonVariants({ color, size, className }), "justify-start relative group border-0", {
+				className={cn(buttonVariants({ color, size, className }), "justify-start relative group border-0 h-12", {
 					"text-error": !!error,
 				})}
 				type="button"
