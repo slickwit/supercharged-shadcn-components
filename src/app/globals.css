@@ -205,6 +205,10 @@
 	select::-webkit-scrollbar {
 		display: none;
 	}
+
+	figure {
+		max-width: calc(100svw - 2rem);
+	}
 }
 
 /* NProgress */

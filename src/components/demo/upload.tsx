@@ -40,7 +40,7 @@ export default function FloatingTextareaDemo() {
 	};
 
 	return (
-		<div className="flex flex-col gap-y-5 max-w-[95%] w-full">
+		<div className="flex flex-col gap-y-5 lg:max-w-[95%] w-full">
 			<div>
 				<h3 className="font-semibold leading-none tracking-tight mb-2">Single Upload:</h3>
 				<Upload file={singleFile} onDrop={handleSingleDrop} onDelete={() => setSingleFile(null)} onRemove={() => setSingleFile(null)} />

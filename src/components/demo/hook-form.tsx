@@ -115,7 +115,7 @@ export default function HookFormDemo() {
 	return (
 		<FormProvider {...methods} onSubmit={handleSubmit} className="space-y-2 w-full">
 			<div className="flex flex-col gap-4">
-				<div className="grid grid-cols-2 gap-4 items-center">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
 					<RHFFloatingInput<TFormSchema> name="firstname" label="Last Name" />
 
 					<RHFFloatingInput<TFormSchema> name="lastname" label="Last Name" />
@@ -136,9 +136,9 @@ export default function HookFormDemo() {
 				<div className="flex flex-col gap-3 justify-center">
 					<Label className={cn(!!errors.gender && "text-error")}>Gender (Radio Group)</Label>
 					<RHFRadioGroup<TFormSchema> name="gender">
-						<div className="flex space-x-4 items-center">
+						<div className="flex lg:gap-4 gap-2.5 flex-wrap items-center">
 							{["male", "female", "others", null].map((gender) => (
-								<div key={gender} className="flex items-center space-x-2">
+								<div key={gender} className="flex items-center space-x-1 lg:space-x-2">
 									<RadioGroupItem
 										value={gender ?? ""}
 										id={gender ?? ""}
@@ -154,16 +154,12 @@ export default function HookFormDemo() {
 				</div>
 				<RHFTextarea<TFormSchema> name="description" label="Description (Textarea)" rows={6} />
 
-				<div className="grid grid-cols-2 gap-4">
-					<RHFSelect<TFormSchema>
-						name="language"
-						label="Single Language (Select)"
-						options={languages.map((l) => ({ value: l, label: l }))}
-					/>
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+					<RHFSelect<TFormSchema> name="language" label="Language (Select)" options={languages.map((l) => ({ value: l, label: l }))} />
 
 					<RHFMultiSelect<TFormSchema>
 						name="languages"
-						label="Multiple Languages (Multiple Select)"
+						label="Languages (Multi Select)"
 						options={languages.map((l) => ({ value: l, label: l }))}
 					/>
 				</div>

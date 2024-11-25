@@ -35,7 +35,7 @@ export default function RHFUploadMultipleDemo() {
 	const handleSubmit = () => {};
 	return (
 		<FormProvider {...methods} onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
-			<div className="max-w-[80%] w-full">
+			<div className="lg:max-w-[80%] w-full">
 				<RHFUploadMultiple<TFormSchema> name="files" />
 			</div>
 			<div className="mt-10 space-x-3">

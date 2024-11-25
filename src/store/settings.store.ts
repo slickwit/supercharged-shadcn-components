@@ -2,6 +2,15 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+export const presetOptions = [
+	["default", "#16a34a"],
+	["orange", "#F97316"],
+	["blue", "#2563EB"],
+	["rose", "#E11D48"],
+	["zinc", "#18181B"],
+	["purple", "#7738DC"],
+] as const;
+
 export interface ISettings {
 	_hasHydrated: boolean;
 	themeColorPresets: "default" | "purple" | "blue" | "orange" | "rose" | "zinc";

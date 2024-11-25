@@ -16,7 +16,7 @@ export default function CopyCode({ text, className }: CopyCodeProps) {
 
 	if (isCopied) {
 		return (
-			<Button variant="outline" className={cn("size-7 text-input p-0 bg-transparent", className)}>
+			<Button variant="outline" className={cn("lg:size-7 lg:p-0 size-4 text-input bg-transparent", className)}>
 				<Check />
 			</Button>
 		);
@@ -24,7 +24,7 @@ export default function CopyCode({ text, className }: CopyCodeProps) {
 	return (
 		<Button
 			variant="outline"
-			className={cn("size-7 text-input p-0 hover:outline-0 bg-transparent", className)}
+			className={cn("lg:size-7 p-0 size-6 [&>svg]:size-4 [&>svg]:stroke-foreground text-input hover:outline-0 bg-transparent", className)}
 			onClick={() => copyToClipboard(text)}>
 			<Clipboard />
 		</Button>

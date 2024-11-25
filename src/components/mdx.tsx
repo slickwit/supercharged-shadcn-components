@@ -69,7 +69,7 @@ const components = {
 		<pre className={cn("max-h-[650px] overflow-x-auto rounded-lg border pl-3 py-4 bg-[#24292e]", className)} {...props} />
 	),
 	code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-		<code className={cn("relative rounded font-mono text-sm", className)} {...props} />
+		<code className={cn("relative rounded font-mono text-xs lg:text-sm", className)} {...props} />
 	),
 	Image,
 	ComponentPreview,

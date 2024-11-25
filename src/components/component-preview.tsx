@@ -44,7 +44,7 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 						<div className="w-full flex justify-end">
 							<CopyCode text={codeString} />
 						</div>
-						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 w-full mx-auto px-10 pb-7">
+						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 w-full mx-auto lg:px-10 pb-7 mt-1.5">
 							<React.Suspense
 								fallback={
 									<div className="flex w-full items-center justify-center text-sm text-muted-foreground">Loading...</div>

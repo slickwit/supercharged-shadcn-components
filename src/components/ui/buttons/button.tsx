@@ -198,9 +198,9 @@ const buttonVariants = cva(
 				destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
 				contained: "",
 				soft: "",
-				outline: "hover:shadow-[currentcolor_0px_0px_0px_0.5px]",
+				outline: "",
 				secondary: "",
-				ghost: "",
+				ghost: "hover:shadow-[currentcolor_0px_0px_0px_0.5px]",
 				link: "underline-offset-4 hover:underline",
 			},
 			size: {

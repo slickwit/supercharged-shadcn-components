@@ -37,8 +37,8 @@ export function Searchbar() {
 		<>
 			<div
 				onClick={handleOpen}
-				className="flex items-center justify-around gap-4 rounded-md border border-input px-3 py-2 text-sm text-muted-foreground ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 hover:bg-muted">
-				<span className="flex items-center gap-1">
+				className="flex lg:hidden items-center lg:justify-around gap-4 rounded-md border border-input lg:px-3 lg:py-2 py-1 px-2 max-md:w-full text-sm text-muted-foreground ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 hover:bg-muted">
+				<span className="flex items-center justify-start gap-1">
 					<SearchIcon className="h-4 w-4" />
 					Search Components...
 				</span>

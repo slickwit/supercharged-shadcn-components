@@ -44,6 +44,7 @@
     "react-dom": "^18",
     "react-dropzone": "^14.3.5",
     "react-hook-form": "^7.53.2",
+    "react-wrap-balancer": "^1.1.1",
     "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",

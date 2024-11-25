@@ -21,7 +21,7 @@ export function CustomComponentPreview({ source, children, rawSource }: CustomCo
 						<div className="w-full flex justify-end">
 							<CopyCode text={rawSource} />
 						</div>
-						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 w-full mx-auto px-10 pb-7">
+						<div className="min-h-80 flex items-center justify-center flex-wrap gap-y-3 w-full mx-auto lg:px-10 pb-7">
 							<React.Suspense
 								fallback={
 									<div className="flex w-full items-center justify-center text-sm text-muted-foreground">Loading...</div>
@@ -33,7 +33,7 @@ export function CustomComponentPreview({ source, children, rawSource }: CustomCo
 					<TabsContent
 						value="code"
 						className="border border-input rounded-md relative [&_code]:relative [&_code]:rounded [&_code]:font-mono [&_code]:text-sm [&_pre]:max-h-[650px] [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:border [&_pre]:pl-3 [&_pre]:py-4 [&_pre]:bg-[#24292e]">
-						<CopyCode text={rawSource} className="absolute right-5 top-3 z-[60]" />
+						<CopyCode text={rawSource} className="absolute right-5 top-3 z-40" />
 						{source}
 					</TabsContent>
 				</Tabs>

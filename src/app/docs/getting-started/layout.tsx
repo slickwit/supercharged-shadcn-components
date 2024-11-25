@@ -25,7 +25,7 @@ export default function GettingStartedLayout({ children }: GettingStartedLayoutP
 	return (
 		<>
 			<AppHeader links={links} />
-			<div className="container mx-auto p-4 mt-20">{children}</div>
+			<div className="container mx-auto p-4 lg:mt-20 mt-14">{children}</div>
 		</>
 	);
 }
