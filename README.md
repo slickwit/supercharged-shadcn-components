@@ -1,4 +1,4 @@
-# Supercharged Shadcn Components
+# [Supercharged Shadcn Components](https://supercharged-shadcn-components.vercel.app)
 
 ## Why Supercharged Shadcn Components?
 
