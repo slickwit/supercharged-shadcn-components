@@ -82,7 +82,11 @@ export default function AppHeader({ links }: AppHeaderProps) {
 								/>
 							</Button>
 						</PopoverTrigger>
-						<PopoverContent sideOffset={12}>
+						<PopoverContent
+							sideOffset={12}
+							onOpenAutoFocus={(e) => {
+								e.preventDefault();
+							}}>
 							<PresetsOptions />
 						</PopoverContent>
 					</Popover>

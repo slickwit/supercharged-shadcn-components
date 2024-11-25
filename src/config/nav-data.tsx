@@ -48,7 +48,7 @@ export const useNavData = () => {
 					{
 						title: "Buttons",
 						name: "buttons",
-						url: "#",
+						url: "/docs/components/buttons",
 						icon: ICONS.buttons,
 						items: [
 							{
@@ -66,7 +66,7 @@ export const useNavData = () => {
 					{
 						title: "Inputs",
 						name: "inputs",
-						url: "#",
+						url: "/docs/components/inputs",
 						icon: ICONS.inputs,
 						items: [
 							{
@@ -105,7 +105,7 @@ export const useNavData = () => {
 					{
 						title: "Hook Form",
 						name: "form",
-						url: "#",
+						url: "/docs/components/hook-form",
 						icon: ICONS.form,
 						items: [
 							{
