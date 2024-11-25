@@ -65,10 +65,10 @@ export default function CustomRHFMultiSelect<TFieldValues extends FieldValues>({
 			render={({ field, fieldState: { error } }) => {
 				return (
 					<div className={containerClass}>
-						<Popover open={open} onOpenChange={setOpen}>
+						<Popover>
 							<PopoverTrigger asChild>
 								<FloatingLabelButon
-									role={name + "-combobox"}
+									role={name + "-popover"}
 									aria-expanded={open}
 									{...btnProps}
 									ref={btnRef}
@@ -81,7 +81,7 @@ export default function CustomRHFMultiSelect<TFieldValues extends FieldValues>({
 							<PopoverContent
 								{...popoverProps}
 								style={popOverStyle}
-								className={cn("w-full p-0 space-y-0", popoverProps?.className)}>
+								className={cn("p-0 space-y-0 w-full min-w-[--radix-popper-anchor-width]", popoverProps?.className)}>
 								{options.map((option, index) => {
 									const selected = (field.value as string).split(",").findIndex((val) => val === option.value) !== -1;
 									return (
