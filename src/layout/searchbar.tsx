@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { SearchIcon, FileText } from "lucide-react";
 
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import Link from "next/link";
 import { type TItems, useNavData } from "@/config/nav-data";
 import { useActiveLink } from "@/hooks/use-active-link";
@@ -66,20 +66,6 @@ export function Searchbar() {
 			</CommandDialog>
 		</>
 	);
-}
-
-function CommandLists({ item, handleClose }: { item: TItems; handleClose: () => void }) {
-	if (!!item.items) {
-		return (
-			<CommandGroup key={item.title} heading={item.title}>
-				{item.items.map((item) => (
-					<CommandLink key={item.url} item={item} handleClose={handleClose} />
-				))}
-			</CommandGroup>
-		);
-	}
-
-	return <CommandLink item={item} handleClose={handleClose} />;
 }
 
 function CommandLink({ item, handleClose }: { item: TItems; handleClose: () => void }) {
