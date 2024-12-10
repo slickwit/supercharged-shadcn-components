@@ -37,7 +37,7 @@ export default function RHFMultiSelectDemo() {
 			</div>
 			<div className="mt-10 space-x-3">
 				<Button
-					variant="contained"
+					variant="filled"
 					color="error"
 					onClick={() => {
 						methods.clearErrors();
@@ -46,7 +46,7 @@ export default function RHFMultiSelectDemo() {
 					type="button">
 					Clear
 				</Button>
-				<Button variant="contained" color="success" type="submit">
+				<Button variant="filled" color="success" type="submit">
 					Submit
 				</Button>
 			</div>

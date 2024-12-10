@@ -39,7 +39,7 @@ export function ComponentSource({ children, className, filePath }: ComponentSour
 							open.value ? "inset-x-0 bottom-0 h-12" : "inset-0",
 						)}>
 						<CollapsibleTrigger asChild>
-							<Button variant="contained" color="default" className="h-8 text-xs">
+							<Button variant="filled" color="default" className="h-8 text-xs">
 								{open.value ? "Collapse" : "View Code"}
 							</Button>
 						</CollapsibleTrigger>

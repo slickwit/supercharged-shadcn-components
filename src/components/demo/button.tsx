@@ -8,28 +8,28 @@ export default function ButtonDemo() {
 		<>
 			<Card className="w-full">
 				<CardHeader>
-					<CardTitle>Contained</CardTitle>
+					<CardTitle>Filled</CardTitle>
 				</CardHeader>
 				<CardContent className="flex flex-wrap gap-2.5 w-full">
-					<Button variant="contained" color="default">
+					<Button variant="filled" color="default">
 						Default
 					</Button>
-					<Button variant="contained" color="primary">
+					<Button variant="filled" color="primary">
 						Primary
 					</Button>
-					<Button variant="contained" color="secondary">
+					<Button variant="filled" color="secondary">
 						Secondary
 					</Button>
-					<Button variant="contained" color="success">
+					<Button variant="filled" color="success">
 						Success
 					</Button>
-					<Button variant="contained" color="info">
+					<Button variant="filled" color="info">
 						Info
 					</Button>
-					<Button variant="contained" color="warning">
+					<Button variant="filled" color="warning">
 						Warning
 					</Button>
-					<Button variant="contained" color="error">
+					<Button variant="filled" color="error">
 						Error
 					</Button>
 				</CardContent>

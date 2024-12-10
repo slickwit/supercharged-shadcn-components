@@ -13,7 +13,7 @@ export interface FloatingLabelButonProps
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean;
 	ring?: boolean;
-	// variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "contained" | "outline";
+	// variant?: "destructive" | "secondary" | "link" | "ghost" | "soft" | "filled" | "outline";
 	color?: "default" | "primary" | "secondary" | "info" | "success" | "warning" | "error";
 	size?: "default" | "sm" | "md" | "lg" | "icon";
 	startIcon?: React.ReactNode;

@@ -11,7 +11,7 @@ const chipVariants = cva(
 		compoundVariants: [
 			// Default color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "default",
 				className: "bg-foreground/90 dark:bg-foreground text-accent data-[clickable=true]:hover:bg-foreground/65",
 			},
@@ -28,7 +28,7 @@ const chipVariants = cva(
 			},
 			// Primary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "primary",
 				className: "bg-primary data-[clickable=true]:hover:bg-primary/80",
 			},
@@ -44,7 +44,7 @@ const chipVariants = cva(
 			},
 			// Secondary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "secondary",
 				className: "bg-secondary data-[clickable=true]:hover:bg-secondary/80",
 			},
@@ -60,7 +60,7 @@ const chipVariants = cva(
 			},
 			// Info color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "info",
 				className: "text-white bg-info data-[clickable=true]:hover:bg-info/90",
 			},
@@ -76,7 +76,7 @@ const chipVariants = cva(
 			},
 			// Success color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "success",
 				className: "text-white bg-success data-[clickable=true]:hover:bg-success/90",
 			},
@@ -92,7 +92,7 @@ const chipVariants = cva(
 			},
 			// Warning color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "warning",
 				className: "text-white bg-warning data-[clickable=true]:hover:bg-warning/90",
 			},
@@ -108,7 +108,7 @@ const chipVariants = cva(
 			},
 			// Error color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "error",
 				className: "text-white bg-error data-[clickable=true]:hover:bg-error/90",
 			},
@@ -125,7 +125,7 @@ const chipVariants = cva(
 		],
 		variants: {
 			variant: {
-				contained: "",
+				filled: "",
 				outline: "bg-transparent",
 				soft: "",
 			},
@@ -145,7 +145,7 @@ const chipVariants = cva(
 		},
 		defaultVariants: {
 			color: "default",
-			variant: "contained",
+			variant: "filled",
 			size: "md",
 		},
 	},
@@ -156,24 +156,24 @@ const deletableVariants = cva(
 	{
 		variants: {
 			variant: {
-				contained: "data-[variant=contained]:bg-white/45 data-[variant=contained]:hover:bg-white/80",
+				filled: "data-[variant=filled]:bg-white/45 data-[variant=filled]:hover:bg-white/80",
 				outline: "text-accent",
 				soft: "text-accent",
 			},
 			color: {
 				default:
-					"data-[variant=contained]:bg-accent/80 data-[variant=contained]:hover:bg-accent data-[variant=contained]:text-foreground bg-foreground/65 hover:bg-foreground",
-				primary: "data-[variant=contained]:text-primary bg-primary/65 hover:bg-primary",
-				secondary: "data-[variant=contained]:text-secondary bg-secondary/65 hover:bg-secondary",
-				info: "data-[variant=contained]:text-info bg-info/65 hover:bg-info",
-				success: "data-[variant=contained]:text-success bg-success/65 hover:bg-success",
-				warning: "data-[variant=contained]:text-warning bg-warning/65 hover:bg-warning",
-				error: "data-[variant=contained]:text-error bg-error/65 hover:bg-error",
+					"data-[variant=filled]:bg-accent/80 data-[variant=filled]:hover:bg-accent data-[variant=filled]:text-foreground bg-foreground/65 hover:bg-foreground",
+				primary: "data-[variant=filled]:text-primary bg-primary/65 hover:bg-primary",
+				secondary: "data-[variant=filled]:text-secondary bg-secondary/65 hover:bg-secondary",
+				info: "data-[variant=filled]:text-info bg-info/65 hover:bg-info",
+				success: "data-[variant=filled]:text-success bg-success/65 hover:bg-success",
+				warning: "data-[variant=filled]:text-warning bg-warning/65 hover:bg-warning",
+				error: "data-[variant=filled]:text-error bg-error/65 hover:bg-error",
 			},
 		},
 		defaultVariants: {
 			color: "default",
-			variant: "contained",
+			variant: "filled",
 		},
 	},
 );
@@ -188,7 +188,7 @@ export interface ChipProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "c
 
 function Chip({
 	label,
-	variant = "contained",
+	variant = "filled",
 	size = "md",
 	color = "default",
 	avatar,

@@ -81,7 +81,7 @@ const Upload = (props: UploadProps) => {
 					</Button>
 				)}
 				{!!onUpload && (
-					<Button size="sm" variant="contained" onClick={onUpload}>
+					<Button size="sm" variant="filled" onClick={onUpload}>
 						<CloudUpload className="mr-1" />
 						Upload
 					</Button>

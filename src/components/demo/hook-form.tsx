@@ -175,10 +175,10 @@ export default function HookFormDemo() {
 				<RHFUploadMultiple<TFormSchema> name="multiFile" />
 
 				<div className="flex items-center justify-end gap-4">
-					<Button variant="contained" color="error" type="button" onClick={handleReset}>
+					<Button variant="filled" color="error" type="button" onClick={handleReset}>
 						Reset
 					</Button>
-					<Button variant="contained" color="success" type="submit">
+					<Button variant="filled" color="success" type="submit">
 						Submit
 					</Button>
 				</div>

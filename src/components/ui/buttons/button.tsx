@@ -10,7 +10,7 @@ const buttonVariants = cva(
 		compoundVariants: [
 			// Default color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "default",
 				className: "bg-gray-600 text-white hover:bg-gray-500",
 			},
@@ -36,7 +36,7 @@ const buttonVariants = cva(
 			},
 			// Primary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "primary",
 				className: "text-white bg-primary hover:bg-primary/90",
 			},
@@ -62,7 +62,7 @@ const buttonVariants = cva(
 			},
 			// Secondary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "secondary",
 				className: "text-white bg-secondary hover:bg-secondary/90",
 			},
@@ -88,7 +88,7 @@ const buttonVariants = cva(
 			},
 			// Info color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "info",
 				className: "text-white bg-info hover:bg-info/90",
 			},
@@ -114,7 +114,7 @@ const buttonVariants = cva(
 			},
 			// Success color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "success",
 				className: "text-white bg-success hover:bg-success/90",
 			},
@@ -140,7 +140,7 @@ const buttonVariants = cva(
 			},
 			// Warning color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "warning",
 				className: "text-white bg-warning hover:bg-warning/90",
 			},
@@ -166,7 +166,7 @@ const buttonVariants = cva(
 			},
 			// Error color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "error",
 				className: "text-white bg-error hover:bg-error/90",
 			},
@@ -195,7 +195,7 @@ const buttonVariants = cva(
 			variant: {
 				default: "",
 				destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-				contained: "",
+				filled: "",
 				soft: "",
 				outline: "",
 				secondary: "",

@@ -8,7 +8,7 @@ export const buttonVariants = cva(
 		compoundVariants: [
 			// Default color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "default",
 				className: "",
 			},
@@ -35,7 +35,7 @@ export const buttonVariants = cva(
 			},
 			// Primary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "primary",
 				className: "text-white bg-primary hover:bg-primary-dark",
 			},
@@ -61,7 +61,7 @@ export const buttonVariants = cva(
 			},
 			// Secondary color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "secondary",
 				className: "text-white bg-secondary hover:bg-secondary-dark",
 			},
@@ -87,7 +87,7 @@ export const buttonVariants = cva(
 			},
 			// Info color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "info",
 				className: "text-white bg-info hover:bg-info-dark",
 			},
@@ -113,7 +113,7 @@ export const buttonVariants = cva(
 			},
 			// Success color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "success",
 				className: "text-white bg-success hover:bg-success-dark",
 			},
@@ -139,7 +139,7 @@ export const buttonVariants = cva(
 			},
 			// Warning color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "warning",
 				className: "text-white bg-warning hover:bg-warning-dark",
 			},
@@ -165,7 +165,7 @@ export const buttonVariants = cva(
 			},
 			// Error color
 			{
-				variant: "contained",
+				variant: "filled",
 				color: "error",
 				className: "text-white bg-error hover:bg-error-dark",
 			},
@@ -196,7 +196,7 @@ export const buttonVariants = cva(
 				secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
 				link: "underline-offset-4 hover:underline",
 				ghost: "",
-				contained: "",
+				filled: "",
 				outline: "",
 				soft: "",
 			},
@@ -218,7 +218,7 @@ export const buttonVariants = cva(
 			},
 		},
 		defaultVariants: {
-			variant: "contained",
+			variant: "filled",
 			size: "md",
 			color: "default",
 		},
