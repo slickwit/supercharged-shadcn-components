@@ -25,12 +25,9 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 	}, [name]);
 
 	const codeString = React.useMemo(() => {
-		if (typeof Code?.props["data-rehype-pretty-code-fragment"] !== "undefined") {
-			const [RawCode] = React.Children.toArray(Code.props.children) as React.ReactElement[];
-
-			return RawCode?.props?.value || RawCode?.props?.__rawstring__ || null;
-		}
+		return Code?.props?.__rawstring__ || null;
 	}, [Code]);
+	
 
 	return (
 		<div>
@@ -54,7 +51,7 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 						</div>
 					</TabsContent>
 					<TabsContent value="code" className="border border-input rounded-md relative">
-						<CopyCode text={codeString} className="absolute right-5 top-3" />
+						<CopyCode text={codeString} className="absolute right-5 top-3 z-30" />
 						{Code}
 					</TabsContent>
 				</Tabs>
