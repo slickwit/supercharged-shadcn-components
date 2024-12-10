@@ -7,6 +7,7 @@ const icon = (name: string) => (
 
 const ICONS = {
 	buttons: icon("buttons"),
+	chip: icon("chip"),
 	inputs: icon("inputs"),
 	form: icon("form"),
 	upload: icon("upload"),
@@ -62,6 +63,12 @@ export const useNavData = () => {
 								url: "/docs/components/buttons/floating-button",
 							},
 						],
+					},
+					{
+						title: "Chip",
+						name: "chip",
+						url: "/docs/components/chip",
+						icon: ICONS.chip,
 					},
 					{
 						title: "Inputs",

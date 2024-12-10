@@ -13,7 +13,16 @@ export const demoComponents: Record<string, any> = {
 		})),
 		path: "src/components/ui/buttons/button.tsx",
 	},
-
+	"chip-demo": {
+		component: lazy(() => import("@/components/demo/chip")),
+		path: "src/components/demo/chip.tsx",
+	},
+	chip: {
+		component: lazy(async () => ({
+			default: (await import("@/components/ui/chip")).Chip,
+		})),
+		path: "src/components/ui/chip.tsx",
+	},
 	"floating-button-demo": {
 		component: lazy(() => import("@/components/demo/floating-button")),
 		path: "src/components/demo/floating-button.tsx",

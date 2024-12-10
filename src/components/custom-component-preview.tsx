@@ -17,7 +17,7 @@ export function CustomComponentPreview({ source, children, rawSource }: CustomCo
 						<TabsTrigger value="preview">Preview</TabsTrigger>
 						<TabsTrigger value="code">Code</TabsTrigger>
 					</TabsList>
-					<TabsContent value="preview" className="border border-input rounded-md p-3">
+					<TabsContent value="preview" className="border border-input rounded-md p-3 max-h-[600px] overflow-auto">
 						<div className="w-full flex justify-end">
 							<CopyCode text={rawSource} />
 						</div>

@@ -27,7 +27,6 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 	const codeString = React.useMemo(() => {
 		return Code?.props?.__rawstring__ || null;
 	}, [Code]);
-	
 
 	return (
 		<div>
@@ -37,7 +36,7 @@ export function ComponentPreview({ name, children }: ComponentPreviewProps) {
 						<TabsTrigger value="preview">Preview</TabsTrigger>
 						<TabsTrigger value="code">Code</TabsTrigger>
 					</TabsList>
-					<TabsContent value="preview" className="border border-input rounded-md p-3">
+					<TabsContent value="preview" className="border border-input rounded-md p-3 max-h-[600px] overflow-auto">
 						<div className="w-full flex justify-end">
 							<CopyCode text={codeString} />
 						</div>
