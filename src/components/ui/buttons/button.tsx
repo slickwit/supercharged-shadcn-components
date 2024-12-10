@@ -27,8 +27,7 @@ const buttonVariants = cva(
 			{
 				variant: "soft",
 				color: "default",
-				className:
-					"text-foreground/95 dark:bg-accent/15 bg-accent/75 hover:bg-foreground/15 dark:hover:bg-accent/35 hover:text-foreground",
+				className: "text-foreground dark:bg-accent/35 bg-accent hover:bg-foreground/15 dark:hover:bg-accent/65",
 			},
 			{
 				variant: "link",
