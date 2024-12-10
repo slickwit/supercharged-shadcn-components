@@ -22,7 +22,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "default",
-				className: "dark:hover:bg-accent/15 hover:bg-accent",
+				className: "dark:hover:bg-accent/15 hover:bg-accent hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -49,7 +49,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "primary",
-				className: "text-primary hover:bg-primary/15",
+				className: "text-primary hover:bg-primary/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -75,7 +75,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "secondary",
-				className: "text-secondary hover:bg-secondary/15",
+				className: "text-secondary hover:bg-secondary/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -101,7 +101,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "info",
-				className: "text-info hover:bg-info/15",
+				className: "text-info hover:bg-info/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -127,7 +127,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "success",
-				className: "text-success hover:bg-success/15",
+				className: "text-success hover:bg-success/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -153,7 +153,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "warning",
-				className: "text-warning hover:bg-warning/15",
+				className: "text-warning hover:bg-warning/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
@@ -179,7 +179,7 @@ const buttonVariants = cva(
 			{
 				variant: "ghost",
 				color: "error",
-				className: "text-error hover:bg-error/15",
+				className: "text-error hover:bg-error/15 hover:shadow-none",
 			},
 			{
 				variant: "soft",
