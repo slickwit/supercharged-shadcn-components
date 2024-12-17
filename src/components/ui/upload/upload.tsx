@@ -95,7 +95,7 @@ const Upload = (props: UploadProps) => {
 			<div
 				{...getRootProps()}
 				className={cn(
-					"min-h-[200px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 outline-2 outline-dashed outline-input/65 transition-all hover:opacity-80",
+					"min-h-[200px] outline-none rounded-lg cursor-pointer overflow-hidden relative bg-gray-400/12 outline-2 outline-dashed dark:outline-input/35 outline-input transition-all hover:opacity-80",
 					{
 						"opacity-80": isDragActive,
 						"pointer-events-none opacity-50": disabled,
