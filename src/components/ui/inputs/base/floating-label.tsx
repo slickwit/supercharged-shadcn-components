@@ -6,13 +6,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 // ----------------------------------------------------------------------
 
 const floatingLabelVariant = cva(
-	"cursor-text text-muted-foreground absolute start-2 z-10 transform duration-300 peer-placeholder-shown:start-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 font-medium peer-placeholder-shown:translate-x-1.5 leading-4 text-xs -translate-y-4 top-2 translate-x-1.5 peer-focus:top-2 peer-focus:text-xs peer-focus:-translate-y-4",
+	"cursor-text text-muted-foreground absolute z-10 duration-300 peer-placeholder-shown:start-3 font-medium leading-4 text-xs peer-focus:text-xs",
 	{
 		variants: {
 			size: {
-				sm: "peer-placeholder-shown:text-sm",
-				md: "peer-placeholder-shown:text-base",
-				lg: "peer-placeholder-shown:text-lg",
+				sm: "peer-placeholder-shown:text-sm start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
+				md: "peer-placeholder-shown:text-base start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
+				lg: "peer-placeholder-shown:text-lg start-3.5 peer-focus:start-3.5 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
+				textarea: "peer-placeholder-shown:text-base start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
 			},
 		},
 		defaultVariants: {
@@ -23,8 +24,14 @@ const floatingLabelVariant = cva(
 
 interface FloatingLabelProps extends React.ComponentPropsWithoutRef<typeof Label>, VariantProps<typeof floatingLabelVariant> {}
 
-const FloatingLabel = React.forwardRef<React.ElementRef<typeof Label>, FloatingLabelProps>(({ size = "md", className, ...props }, ref) => {
-	return <Label className={cn("select-none pointer-events-none", floatingLabelVariant({ size, className }))} ref={ref} {...props} />;
+const FloatingLabel = React.forwardRef<React.ElementRef<typeof Label>, FloatingLabelProps>(({ size = "sm", className, ...props }, ref) => {
+	return (
+		<Label
+			className={cn("select-none pointer-events-none transition-all", floatingLabelVariant({ size, className }))}
+			ref={ref}
+			{...props}
+		/>
+	);
 });
 FloatingLabel.displayName = "FloatingLabel";
 

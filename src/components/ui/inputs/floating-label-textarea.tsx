@@ -22,14 +22,16 @@ const FloatingLabelTextArea = React.forwardRef<React.ElementRef<typeof FloatingT
 				<FloatingTextArea
 					ref={ref}
 					id={id}
+					placeholder="  "
 					className={cn(className, "focus-visible:ring-ring focus-visible:ring-0 focus-visible:ring-opacity-0 py-4")}
 					{...props}
 				/>
 				<FloatingLabel
 					htmlFor={id}
-					className={cn("peer-focus:text-primary peer-placeholder-shown:-translate-y-0 peer-placeholder-shown:top-4", {
+					className={cn("peer-focus:text-primary font-medium", {
 						"text-error peer-focus:text-error": error,
-					})}>
+					})}
+					size="textarea">
 					{label}
 				</FloatingLabel>
 				<fieldset
