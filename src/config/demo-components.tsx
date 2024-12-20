@@ -3,6 +3,16 @@ import { lazy } from "react";
 // ----------------------------------------------------------------------
 
 export const demoComponents: Record<string, any> = {
+	"autocomplete-demo": {
+		component: lazy(() => import("@/components/demo/autocomplete")),
+		path: "src/components/demo/autocomplete.tsx",
+	},
+	autocomplete: {
+		component: lazy(async () => ({
+			default: (await import("@/components/ui/autocomplete")).Autocomplete,
+		})),
+		path: "src/components/ui/autocomplete.tsx",
+	},
 	"button-demo": {
 		component: lazy(() => import("@/components/demo/button")),
 		path: "src/components/demo/button.tsx",

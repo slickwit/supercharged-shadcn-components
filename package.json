@@ -52,6 +52,7 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "unified": "^11.0.5",
+    "use-debounce": "^10.0.4",
     "zod": "^3.23.8",
     "zustand": "^5.0.1"
   },
