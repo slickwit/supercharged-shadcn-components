@@ -73,12 +73,17 @@ function CommandLink({ item, handleClose }: { item: TItems; handleClose: () => v
 	return (
 		<CommandItem
 			asChild
-			className={cn("cursor-pointer", active && "text-primary font-semibold bg-primary/10 !opacity-100 underline")}
+			className={cn("cursor-pointer", active && "text-primary font-semibold bg-primary/10 !opacity-100")}
 			disabled={active}
 			value={`${item.title} ${item.name}`}>
 			<Link href={item.url} onClick={handleClose} aria-disabled={active}>
 				<FileText className="size-4 mr-2" />
-				<span>{item.title}</span>
+				<span className={cn(active && "underline")}>{item.title}</span>
+				{item.new && (
+					<span className="inline-flex items-center select-none appearance-none rounded-md font-medium text-xs px-1.5 py-0.5 text-white bg-info">
+						New
+					</span>
+				)}
 			</Link>
 		</CommandItem>
 	);

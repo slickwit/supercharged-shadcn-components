@@ -47,7 +47,7 @@ function NavList({ item }: { item: TItems }) {
 					</SidebarMenuButton>
 				</CollapsibleTrigger>
 				<CollapsibleContent>
-					<SidebarMenuSub>
+					<SidebarMenuSub className="px-0">
 						{item.items.map((subItem) => (
 							<NavLink item={subItem} parentActive={active} key={subItem.name} />
 						))}
@@ -65,8 +65,13 @@ function NavLink({ item, parentActive }: { item: TItems; parentActive: boolean }
 	return (
 		<SidebarMenuSubItem>
 			<SidebarMenuSubButton asChild>
-				<Link href={item.url} className={cn(isActive && "!text-primary  font-semibold underline")}>
-					<span>{item.title}</span>
+				<Link href={item.url} className={cn("justify-between", isActive && "!text-primary  font-semibold")}>
+					<span className={cn(isActive && "underline")}>{item.title}</span>{" "}
+					{item.new && (
+						<span className="inline-flex items-center select-none appearance-none rounded-md font-medium text-xs px-1.5 py-0.5 text-white bg-info">
+							New
+						</span>
+					)}
 				</Link>
 			</SidebarMenuSubButton>
 		</SidebarMenuSubItem>
@@ -83,6 +88,11 @@ function NavSingleList({ item }: { item: TItems }) {
 				<Link href={item.url} className={cn(active && "text-primary font-semibold")}>
 					{!!item.icon && item.icon}
 					<span>{item.title}</span>
+					{item.new && (
+						<span className="ml-auto inline-flex items-center select-none appearance-none rounded-md font-medium text-xs px-1.5 py-0.5 text-white bg-info">
+							New
+						</span>
+					)}
 				</Link>
 			</SidebarMenuButton>
 		</SidebarMenuItem>

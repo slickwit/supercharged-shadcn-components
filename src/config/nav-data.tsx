@@ -22,7 +22,9 @@ export type TItems = {
 		title: string;
 		url: string;
 		name: string;
+		new?: boolean;
 	}[];
+	new?: boolean;
 };
 
 export type TNavData = {
@@ -69,6 +71,7 @@ export const useNavData = () => {
 						name: "chip",
 						url: "/docs/components/chip",
 						icon: ICONS.chip,
+						new: true,
 					},
 					{
 						title: "Inputs",
@@ -76,6 +79,12 @@ export const useNavData = () => {
 						url: "/docs/components/inputs",
 						icon: ICONS.inputs,
 						items: [
+							{
+								title: "Autocomplete",
+								name: "autocomplete",
+								url: "/docs/components/inputs/autocomplete",
+								new: true,
+							},
 							{
 								title: "Floating Input",
 								name: "floating-input",
