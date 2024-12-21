@@ -15,6 +15,10 @@ export const customDemoComponents: Record<string, any> = {
 		component: lazy(() => import("@/components/demo/rhf-checkbox")),
 		path: "src/components/demo/rhf-checkbox.tsx",
 	},
+	"rhf-autocomplete-demo": {
+		component: lazy(() => import("@/components/demo/rhf-autocomplete")),
+		path: "src/components/demo/rhf-autocomplete.tsx",
+	},
 	"rhf-combobox-demo": {
 		component: lazy(() => import("@/components/demo/rhf-combobox")),
 		path: "src/components/demo/rhf-combobox.tsx",

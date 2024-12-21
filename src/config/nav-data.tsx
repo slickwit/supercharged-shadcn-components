@@ -130,6 +130,12 @@ export const useNavData = () => {
 								url: "/docs/components/form/hook-form",
 							},
 							{
+								title: "Autocomplete",
+								name: "rhf-autocomplete",
+								url: "/docs/components/form/rhf-autocomplete",
+								new: true,
+							},
+							{
 								title: "Checkbox",
 								name: "rhf-checkbox",
 								url: "/docs/components/form/rhf-checkbox",

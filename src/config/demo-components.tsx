@@ -141,6 +141,10 @@ export const demoComponents: Record<string, any> = {
 		component: null,
 		path: "src/components/ui/hook-form/form-provider.tsx",
 	},
+	"rhf-autocomplete": {
+		component: null,
+		path: "src/components/ui/hook-form/rhf-autocomplete.tsx",
+	},
 	"rhf-checkbox": {
 		component: null,
 		path: "src/components/ui/hook-form/rhf-checkbox.tsx",
