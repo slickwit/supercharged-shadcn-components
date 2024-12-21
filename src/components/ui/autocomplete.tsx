@@ -142,7 +142,7 @@ const Autocomplete = ({
 				e.preventDefault();
 				setFocusedOption((currState) => {
 					let nextIndex = -1;
-					if (currState === optionList.length - 1 && isCreatable) {
+					if (currState === optionList.length - 1 && isCreatable && !!inputValue.trim()) {
 						nextIndex = optionList.length;
 					} else {
 						nextIndex = currState < optionList.length - 1 ? currState + 1 : 0;
