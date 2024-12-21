@@ -6,14 +6,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 // ----------------------------------------------------------------------
 
 const floatingLabelVariant = cva(
-	"cursor-text text-muted-foreground absolute z-10 duration-300 peer-placeholder-shown:start-3 font-medium leading-4 text-xs peer-focus:text-xs",
+	"cursor-text text-muted-foreground absolute z-10 duration-300 peer-placeholder-shown:start-3 font-medium leading-4 text-xs peer-focus:text-xs start-3 peer-focus:start-3 -top-2 peer-focus:-top-2",
 	{
 		variants: {
 			size: {
-				sm: "peer-placeholder-shown:text-sm start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
-				md: "peer-placeholder-shown:text-base start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
-				lg: "peer-placeholder-shown:text-lg start-3.5 peer-focus:start-3.5 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
-				textarea: "peer-placeholder-shown:text-base start-3 peer-focus:start-3 peer-placeholder-shown:top-3.5 -top-2 peer-focus:-top-2",
+				sm: "peer-placeholder-shown:text-sm peer-placeholder-shown:top-3.5",
+				md: "peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5",
+				lg: "peer-placeholder-shown:text-lg peer-placeholder-shown:top-4",
+				textarea: "peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5",
 			},
 		},
 		defaultVariants: {

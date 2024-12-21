@@ -111,7 +111,7 @@ export default function AutocompleteDemo() {
 			<CardHeader>
 				<CardTitle>Autocomplete</CardTitle>
 			</CardHeader>
-			<CardContent className="flex flex-col gap-x-2.5 gap-y-4 w-[400px] mx-auto">
+			<CardContent className="flex flex-col gap-x-2.5 gap-y-4 w-[300px] mx-auto">
 				<Autocomplete label="Default Autocomplete" value={autocompleteVal} onOptionSelect={handleOptionSelect} options={options} />
 				<Autocomplete
 					label="Customized Option Label"
@@ -126,6 +126,18 @@ export default function AutocompleteDemo() {
 				/>
 				<Autocomplete label="Creatable Autocomplete" options={options} creatable />
 				<Autocomplete label="Async Autocomplete" options={options} asynFilterFunction={fetchData} />
+				<Autocomplete label="Disabled" disabled options={options} />
+				<div>
+					<Autocomplete
+						className="w-full"
+						label="Autocomplete With Error"
+						error
+						value={autocompleteVal}
+						onOptionSelect={handleOptionSelect}
+						options={options}
+					/>
+					<p className="text-xs leading-tight text-error">Something went wrong!</p>
+				</div>
 			</CardContent>
 		</Card>
 	);

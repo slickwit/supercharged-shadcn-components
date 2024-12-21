@@ -38,9 +38,9 @@ Let's build something amazing together. 🚀
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create your branch (`git checkout -b fix-bugs`)
-3. Commit your changes (`git commit -m 'fixing bugs'`)
-4. Push to the branch (`git push origin fix-bugs`)
+2. Create your branch (`git checkout -b feature/awesome-feature`)
+3. Commit your changes (`git commit -m "feat: added some awesome feature"`)
+4. Push to the branch (`git push origin feature/awesome-feature`)
 5. Open a Pull Request
 
 ## 📝 License

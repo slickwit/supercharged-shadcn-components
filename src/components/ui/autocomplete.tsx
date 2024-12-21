@@ -19,9 +19,11 @@ interface AutocompleteProps extends Omit<React.ComponentPropsWithoutRef<typeof F
 	onOptionSelect?: (value: string, selectedOption: Option) => void;
 	options: Option[];
 	creatable?: boolean;
-	onCreate?: (newOption: Option) => void;
+	onCreate?: (newOption: Option) => Option | void;
 	asynFilterFunction?: (query: string) => Promise<Option[]>;
 	loadingLabel?: React.ReactNode;
+	contentClass?: string;
+	triggerClass?: string;
 }
 
 const Autocomplete = ({
@@ -33,6 +35,8 @@ const Autocomplete = ({
 	onCreate,
 	asynFilterFunction,
 	loadingLabel = "loading...",
+	contentClass,
+	triggerClass,
 	...props
 }: AutocompleteProps) => {
 	const inputRef = React.useRef<React.ElementRef<"input">>(null);
@@ -52,7 +56,9 @@ const Autocomplete = ({
 			setOptionList(data);
 		}
 		setLoading(false);
-	}, 600);
+	}, 250);
+
+	const isCreatable = creatable || !!onCreate;
 
 	const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (!!onInputChange) {
@@ -63,7 +69,7 @@ const Autocomplete = ({
 			const filteredOptions = options.filter((opt) =>
 				opt.value.toLocaleLowerCase().includes(e.currentTarget.value.trim().toLocaleLowerCase()),
 			);
-			setOptionList(!creatable ? filteredOptions : [...filteredOptions, ...addedOption]);
+			setOptionList(!isCreatable ? filteredOptions : [...filteredOptions, ...addedOption]);
 		} else {
 			setLoading(true);
 			debounce(e.currentTarget.value);
@@ -118,7 +124,7 @@ const Autocomplete = ({
 		switch (e.key) {
 			case "Enter":
 				e.preventDefault();
-				if (creatable && !!inputValue && focusedOption === optionList.length) {
+				if (isCreatable && !!inputValue && focusedOption === optionList.length) {
 					handleCreate();
 				} else if (focusedOption >= 0) {
 					const selectedOpt = optionList[focusedOption];
@@ -136,7 +142,7 @@ const Autocomplete = ({
 				e.preventDefault();
 				setFocusedOption((currState) => {
 					let nextIndex = -1;
-					if (currState === optionList.length - 1 && creatable) {
+					if (currState === optionList.length - 1 && isCreatable) {
 						nextIndex = optionList.length;
 					} else {
 						nextIndex = currState < optionList.length - 1 ? currState + 1 : 0;
@@ -160,35 +166,40 @@ const Autocomplete = ({
 
 	const handleCreate = () => {
 		const newOption = { label: inputValue, value: inputValue };
-		setAddedOption((curr) => [...curr, newOption]);
-		setOptionList((curr) => [...curr, newOption]);
-		inputRef.current?.blur();
 		if (!!onCreate) {
-			onCreate(newOption);
+			const createdOpt: Option = onCreate(newOption) ?? newOption;
+			setAddedOption((curr) => [...curr, createdOpt]);
+			setOptionList((curr) => [...curr, createdOpt]);
+		} else {
+			setAddedOption((curr) => [...curr, newOption]);
+			setOptionList((curr) => [...curr, newOption]);
 		}
+		inputRef.current?.blur();
 	};
 
-	const canAdd = creatable && !!inputValue ? !optionList.some((opt) => opt.value === inputValue) : false;
-	const notFound = !creatable && optionList.length === 0;
+	const canAdd = isCreatable && !!inputValue ? !optionList.some((opt) => opt.value === inputValue) : false;
+	const notFound = !isCreatable && optionList.length === 0;
 	return (
 		<Popover open={focused.value}>
-			<PopoverTrigger>
-				<FloatingLabelInput
-					{...props}
-					ref={inputRef}
-					value={inputValue}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					onChange={handleInputChange}
-					onKeyDown={handleInputKeyDown}
-				/>
+			<PopoverTrigger asChild>
+				<div className={triggerClass}>
+					<FloatingLabelInput
+						{...props}
+						ref={inputRef}
+						value={inputValue}
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						onChange={handleInputChange}
+						onKeyDown={handleInputKeyDown}
+					/>
+				</div>
 			</PopoverTrigger>
 			<PopoverContent
 				ref={contentRef}
 				onOpenAutoFocus={(e) => {
 					e.preventDefault();
 				}}
-				className="w-[var(--radix-popper-anchor-width)] p-0 flex flex-col items-start max-h-[300px] overflow-y-auto">
+				className={cn(contentClass, "w-[var(--radix-popper-anchor-width)] p-0 flex flex-col items-start max-h-[300px] overflow-y-auto")}>
 				<ul className="w-full py-0.5">
 					{!loading ? (
 						<>
