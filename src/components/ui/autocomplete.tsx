@@ -189,7 +189,7 @@ const Autocomplete = ({
 
 	const handleReset = () => {
 		setInputValue("");
-		setOptionList([...optionList, ...addedOption]);
+		setOptionList([...options, ...addedOption]);
 		setFocusedOption(-1);
 		onRemove?.();
 		inputRef.current?.focus();
