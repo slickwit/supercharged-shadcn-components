@@ -23,9 +23,10 @@ export default function RHFAutocomplete<TFieldValues extends FieldValues>({
 	rules,
 	containerClass,
 	onOptionSelect,
+	onRemove,
 	...other
 }: RHFAutocompleteProps<TFieldValues>) {
-	const { control } = useFormContext();
+	const { control, setValue } = useFormContext();
 
 	return (
 		<Controller
@@ -44,6 +45,10 @@ export default function RHFAutocomplete<TFieldValues extends FieldValues>({
 							} else {
 								onOptionSelect(value, optionValue);
 							}
+						}}
+						onRemove={() => {
+							onRemove?.();
+							setValue(name as string, "", { shouldValidate: false, shouldTouch: true, shouldDirty: true });
 						}}
 						{...restField}
 						error={!!error}

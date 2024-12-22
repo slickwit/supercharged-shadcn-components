@@ -4,6 +4,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { useBoolean } from "@/hooks/use-boolean";
 import { cn } from "@/lib/utils";
 import { useDebouncedCallback } from "use-debounce";
+import { IconButton } from "./buttons/icon-button";
+import { X } from "lucide-react";
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +22,7 @@ interface AutocompleteProps extends Omit<React.ComponentPropsWithoutRef<typeof F
 	options: Option[];
 	creatable?: boolean;
 	onCreate?: (newOption: Option) => Option | void;
+	onRemove?: () => void;
 	asynFilterFunction?: (query: string) => Promise<Option[]>;
 	loadingLabel?: React.ReactNode;
 	contentClass?: string;
@@ -30,9 +33,10 @@ const Autocomplete = ({
 	value = "",
 	onInputChange,
 	onOptionSelect,
+	onCreate,
+	onRemove,
 	options,
 	creatable,
-	onCreate,
 	asynFilterFunction,
 	loadingLabel = "loading...",
 	contentClass,
@@ -54,8 +58,8 @@ const Autocomplete = ({
 		if (asynFilterFunction) {
 			const data = await asynFilterFunction(value);
 			setOptionList(data);
+			setLoading(false);
 		}
-		setLoading(false);
 	}, 250);
 
 	const isCreatable = creatable || !!onCreate;
@@ -72,8 +76,14 @@ const Autocomplete = ({
 			setOptionList(!isCreatable ? filteredOptions : [...filteredOptions, ...addedOption]);
 		} else {
 			setLoading(true);
-			debounce(e.currentTarget.value);
+			try {
+				debounce(e.currentTarget.value);
+			} catch (error) {
+				console.error(error);
+				setLoading(false);
+			}
 		}
+		setFocusedOption(-1);
 	};
 
 	const handleSelect = (optionIndex: number) => {
@@ -177,12 +187,20 @@ const Autocomplete = ({
 		inputRef.current?.blur();
 	};
 
+	const handleReset = () => {
+		setInputValue("");
+		setOptionList([...optionList, ...addedOption]);
+		setFocusedOption(-1);
+		onRemove?.();
+		inputRef.current?.focus();
+	};
+
 	const canAdd = isCreatable && !!inputValue ? !optionList.some((opt) => opt.value === inputValue) : false;
 	const notFound = !isCreatable && optionList.length === 0;
 	return (
 		<Popover open={focused.value}>
 			<PopoverTrigger asChild>
-				<div className={triggerClass}>
+				<div className={cn(triggerClass, "relative group/input")}>
 					<FloatingLabelInput
 						{...props}
 						ref={inputRef}
@@ -191,7 +209,17 @@ const Autocomplete = ({
 						onBlur={handleBlur}
 						onChange={handleInputChange}
 						onKeyDown={handleInputKeyDown}
+						className={cn(props.className, "pr-8")}
 					/>
+					<IconButton
+						size="xs"
+						className={cn(
+							"group-hover/input:visible invisible absolute select-none right-2 top-1/2 transform -translate-y-1/2",
+							!inputValue && "hidden",
+						)}
+						onClick={handleReset}>
+						<X />
+					</IconButton>
 				</div>
 			</PopoverTrigger>
 			<PopoverContent
