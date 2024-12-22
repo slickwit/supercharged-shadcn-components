@@ -111,7 +111,17 @@ const options: Option[] = [
 // Must return array of Option
 const fetchData = async (query: string) => {
 	await new Promise((resolve) => setTimeout(resolve, 600));
-	const filteredOptions = options.filter((opt) => opt.value.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
+	const filteredOptions = options
+		.filter((opt) => opt.value.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))
+		.map((opt) => ({
+			value: opt.value,
+			label: (
+				<div className="flex">
+					<ClapperboardIcon className="mr-1.5" />
+					<span>{opt.label}</span>
+				</div>
+			),
+		}));
 	return filteredOptions;
 };
 
