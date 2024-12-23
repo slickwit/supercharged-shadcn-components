@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import ProgressBarProvider from "@/components/progress-bar";
 import { env } from "@/env";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -13,7 +14,7 @@ const geistSans = localFont({
 const geistMono = localFont({
 	src: "./fonts/GeistMonoVF.woff",
 	variable: "--font-geist-mono",
-	weight: "100 900", 
+	weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -82,23 +83,26 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
+		<>
+			<html lang="en" suppressHydrationWarning>
+				<head>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
 							try {
 								if (localStorage.settings) {document.documentElement.setAttribute("data-theme", JSON.parse(localStorage.settings).state.themeColorPresets);}
 							} catch (_) {}
 						`,
-					}}
-				/>
-			</head>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
-					<ProgressBarProvider>{children}</ProgressBarProvider>
-				</ThemeProvider>
-			</body>
-		</html>
+						}}
+					/>
+				</head>
+				<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+					<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
+						<ProgressBarProvider>{children}</ProgressBarProvider>
+					</ThemeProvider>
+				</body>
+			</html>
+			<Analytics />
+		</>
 	);
 }
