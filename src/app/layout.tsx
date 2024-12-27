@@ -84,6 +84,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
+			<Analytics />
 			<html lang="en" suppressHydrationWarning>
 				<head>
 					<script
@@ -102,7 +103,6 @@ export default function RootLayout({
 					</ThemeProvider>
 				</body>
 			</html>
-			<Analytics />
 		</>
 	);
 }
