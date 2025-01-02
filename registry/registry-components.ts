@@ -4,7 +4,6 @@ export const ui: Registry = [
 	{
 		name: "floating-label-button",
 		type: "registry:ui",
-		registryDependencies: ["button"],
 		files: ["ui/buttons/floating-label-button.tsx", "ui/buttons/variants.ts"],
 	},
 	{
@@ -17,6 +16,6 @@ export const ui: Registry = [
 		name: "floating-label-textarea",
 		type: "registry:ui",
 		registryDependencies: ["label"],
-		files: ["ui/inputs/base/floating-label.tsx", "ui/inputs/floating-label-input.tsx"],
+		files: ["ui/inputs/base/floating-label.tsx", "ui/inputs/floating-label-textarea.tsx"],
 	},
 ];
