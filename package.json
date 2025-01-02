@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun content:build --clearCache && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "content:build": "contentlayer2 build"
@@ -32,7 +32,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "contentlayer2": "^0.5.3",
-    "date-fns": "^4.1.0",
+    "date-fns": "^3.0.0",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "next": "14.2.17",
@@ -55,10 +55,18 @@
     "unified": "^11.0.5",
     "use-debounce": "^10.0.4",
     "zod": "^3.23.8",
-    "zustand": "^5.0.1"
+    "zustand": "^5.0.1",
+    "unist-builder": "3.0.0",
+    "unist-util-visit": "4.1.2",
+    "rehype": "^12.0.1",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.14.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.0",
+    "@shikijs/compat": "^1.1.7",
+    "shiki": "^1.23.1"
   },
   "devDependencies": {
-    "@shikijs/compat": "^1.1.7",
     "@types/node": "^20",
     "@types/numeral": "^2.0.5",
     "@types/react": "^18",
@@ -67,15 +75,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.17",
     "postcss": "^8",
-    "rehype": "^12.0.1",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-pretty-code": "^0.14.0",
-    "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.0",
-    "shiki": "^1.23.1",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "unist-builder": "3.0.0",
-    "unist-util-visit": "4.1.2"
+    "typescript": "^5"
   }
 }
