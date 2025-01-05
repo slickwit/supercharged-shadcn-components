@@ -10,6 +10,7 @@ const REGISTRY_BASE_PATH = "registry";
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
 const COMPONENT_FOLDER_PATH = "components";
 const HOOK_FOLDER_PATH = "hooks";
+const LIB_FOLDER_PATH = "lib";
 
 type File = z.infer<typeof registryItemFileSchema>;
 const FolderToComponentTypeMap = {
@@ -41,7 +42,10 @@ const getComponentFiles = async (files: File[]) => {
 			const filePath = `${REGISTRY_BASE_PATH}/${file}`;
 			const fileContent = await fs.readFile(filePath, "utf-8");
 			const [type, ...restPath] = file.split("/");
-			const target = type !== HOOK_FOLDER_PATH ? `${COMPONENT_FOLDER_PATH}/${file}` : `${HOOK_FOLDER_PATH}/${restPath.join()}`;
+			const target =
+				type === COMPONENT_FOLDER_PATH
+					? `${COMPONENT_FOLDER_PATH}/${file}`
+					: `${type === HOOK_FOLDER_PATH ? HOOK_FOLDER_PATH : LIB_FOLDER_PATH}/${restPath.join()}`;
 			return {
 				type: FolderToComponentTypeMap[type as keyof typeof FolderToComponentTypeMap],
 				content: fileContent,

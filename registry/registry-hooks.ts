@@ -2,7 +2,7 @@ import { Registry } from "./schema";
 
 export const hooks: Registry = [
 	{
-		name: "use-active-link.ts",
+		name: "use-active-link",
 		type: "registry:hook",
 		files: ["hooks/use-active-link.ts"],
 	},
