@@ -27,7 +27,7 @@ async function writeFileRecursive(filePath: string, data: string) {
 
 		// Write the file
 		await fs.writeFile(filePath, data, "utf-8");
-		console.log(`File written to ${filePath}`);
+		// console.log(`File written to ${filePath}`);
 	} catch (error) {
 		console.error(`Error writing file`);
 		console.error(error);
