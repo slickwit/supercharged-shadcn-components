@@ -40,12 +40,13 @@ const getComponentFiles = async (files: File[]) => {
 		if (typeof file === "string") {
 			const filePath = `${REGISTRY_BASE_PATH}/${file}`;
 			const fileContent = await fs.readFile(filePath, "utf-8");
-			const isHook = file.split("/")[0] === HOOK_FOLDER_PATH;
+			const [type, ...restPath] = file.split("/");
+			const target = type !== HOOK_FOLDER_PATH ? `${COMPONENT_FOLDER_PATH}/${file}` : `${HOOK_FOLDER_PATH}/${restPath.join()}`;
 			return {
-				type: FolderToComponentTypeMap[file.split("/")[0] as keyof typeof FolderToComponentTypeMap],
+				type: FolderToComponentTypeMap[type as keyof typeof FolderToComponentTypeMap],
 				content: fileContent,
 				path: file,
-				target: `${!isHook ? COMPONENT_FOLDER_PATH : HOOK_FOLDER_PATH}/${file}`,
+				target,
 			};
 		}
 	});
