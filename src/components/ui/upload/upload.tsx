@@ -24,11 +24,11 @@ interface UploadProps extends DropzoneOptions {
 	thumbnail?: boolean;
 
 	file?: FileWithPathAndPreview | null | string;
-	onDelete?: () => any;
+	onDelete?: () => void;
 
 	files?: (FileWithPathAndPreview | null | string)[];
 	onRemove?: (file: FileWithPathAndPreview | string, index: number) => any;
-	onRemoveAll?: () => any;
+	onRemoveAll?: () => void;
 	onUpload?: () => void;
 }
 
