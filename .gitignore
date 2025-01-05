@@ -40,3 +40,5 @@ empty
 .contentlayer
 
 src/app/test
+
+/public/registry/
