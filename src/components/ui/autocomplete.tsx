@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { useBoolean } from "@/hooks/use-boolean";
 import { cn } from "@/lib/utils";
 import { useDebouncedCallback } from "use-debounce";
-import { IconButton } from "./buttons/icon-button";
+import { IconButton } from "@/components/ui/buttons/icon-button";
 import { X } from "lucide-react";
 
 // ----------------------------------------------------------------------

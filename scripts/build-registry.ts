@@ -43,7 +43,7 @@ const getComponentFiles = async (files: File[]) => {
 			const fileContent = await fs.readFile(filePath, "utf-8");
 			const [type, ...restPath] = file.split("/");
 			const target =
-				type === COMPONENT_FOLDER_PATH
+				type === "ui"
 					? `${COMPONENT_FOLDER_PATH}/${file}`
 					: `${type === HOOK_FOLDER_PATH ? HOOK_FOLDER_PATH : LIB_FOLDER_PATH}/${restPath.join()}`;
 			return {
