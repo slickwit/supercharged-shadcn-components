@@ -9,6 +9,7 @@ import path from "path";
 const REGISTRY_BASE_PATH = "registry";
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
 const COMPONENT_FOLDER_PATH = "components";
+const HOOK_FOLDER_PATH = "hooks";
 
 type File = z.infer<typeof registryItemFileSchema>;
 const FolderToComponentTypeMap = {
@@ -39,11 +40,12 @@ const getComponentFiles = async (files: File[]) => {
 		if (typeof file === "string") {
 			const filePath = `${REGISTRY_BASE_PATH}/${file}`;
 			const fileContent = await fs.readFile(filePath, "utf-8");
+			const isHook = file.split("/")[0] === HOOK_FOLDER_PATH;
 			return {
 				type: FolderToComponentTypeMap[file.split("/")[0] as keyof typeof FolderToComponentTypeMap],
 				content: fileContent,
 				path: file,
-				target: `${COMPONENT_FOLDER_PATH}/${file}`,
+				target: `${!isHook ? COMPONENT_FOLDER_PATH : HOOK_FOLDER_PATH}/${file}`,
 			};
 		}
 	});
