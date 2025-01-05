@@ -46,7 +46,7 @@ export const ui: Registry = [
 	{
 		name: "floating-label-textarea",
 		type: "registry:ui",
-		registryDependencies: ["label"],
+		registryDependencies: ["label", "textarea"],
 		files: ["ui/inputs/base/floating-label.tsx", "ui/inputs/floating-label-textarea.tsx"],
 	},
 	{

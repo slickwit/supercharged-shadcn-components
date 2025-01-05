@@ -18,6 +18,7 @@ const FolderToComponentTypeMap = {
 	component: "registry:component",
 	hooks: "registry:hook",
 	ui: "registry:ui",
+	lib: "registry:lib",
 };
 
 async function writeFileRecursive(filePath: string, data: string) {
