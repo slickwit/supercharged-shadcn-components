@@ -13,7 +13,7 @@ export default function DatePickerDemo() {
 				date={date}
 				onSelect={setDate}
 				calendarProps={{
-					disabled: (date) => date > new Date(),
+					disabled: (date) => date < new Date(),
 				}}
 			/>
 		</div>

@@ -18,16 +18,17 @@ interface DatePickerProps {
 	label?: string;
 	btnProps?: Omit<React.ComponentPropsWithoutRef<typeof FloatingLabelButon>, "value" | "label">;
 	calendarProps?: Omit<ComponentPropsWithoutRef<typeof Calendar>, "selected" | "onSelect" | "mode">;
+	formatString?: string;
 }
 
-export function DatePicker({ date, onSelect, btnProps, calendarProps, label = "Pick a date" }: DatePickerProps) {
+export function DatePicker({ date, onSelect, btnProps, calendarProps, label = "Pick a date", formatString }: DatePickerProps) {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
 				<FloatingLabelButon
 					variant="outline"
 					label={label}
-					value={!!date ? format(date, "PPP") : ""}
+					value={!!date ? format(date, formatString ?? "PPP") : ""}
 					{...btnProps}
 					className={cn(
 						"w-full justify-start text-base select-none overflow-x-clip py-1 cursor-text",
