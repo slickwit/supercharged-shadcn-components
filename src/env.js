@@ -7,7 +7,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    APP_URL: z.string(),
+    NEXT_APP_URL: z.string(),
     APP_TITLE: z.string().default("Supercharged Shadcn/UI Components"),
     NODE_ENV: z
       .enum(["development", "test", "production"])
@@ -29,7 +29,7 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     APP_TITLE: process.env.APP_TITLE,
-    APP_URL: process.env.APP_URL
+    NEXT_APP_URL: process.env.NEXT_APP_URL
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

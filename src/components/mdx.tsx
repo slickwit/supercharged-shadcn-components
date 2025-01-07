@@ -3,6 +3,7 @@ import * as React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
+import { ComponentInstallation } from "./component-installation";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer2/hooks";
@@ -74,6 +75,7 @@ const components = {
 	Image,
 	ComponentPreview,
 	ComponentSource,
+	ComponentInstallation,
 	Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => <Tabs className={cn("relative mt-6 w-full", className)} {...props} />,
 	TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
 		<TabsList className={cn("w-full justify-start rounded-none border-b bg-transparent p-0", className)} {...props} />

@@ -48,11 +48,11 @@ export const metadata: Metadata = {
 		title: "Supercharged Shadcn Component - Pre-built React Components",
 		description:
 			"Build faster with ready-to-use React components inspired by shadcn/ui and Material-UI, featuring simpler, type-safe react-hook-form components.",
-		url: env.APP_URL,
+		url: env.NEXT_APP_URL,
 		siteName: "Supercharged Shadcn Component",
 		images: [
 			{
-				url: env.APP_URL + "/og-image.png",
+				url: env.NEXT_APP_URL + "/og-image.png",
 				width: 1200,
 				height: 630,
 				alt: "Supercharged Shadcn Component - Pre-built React Components",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 		title: "Supercharged Shadcn Component - Pre-built React Components",
 		description:
 			"An open-source ReactJS library with pre-built components to supercharge your development workflow. Inspired by shadcn/ui, Material-UI, and more.",
-		images: [env.APP_URL + "/og-image.png"],
+		images: [env.NEXT_APP_URL + "/og-image.png"],
 		creator: "@KennethRyanDy3",
 	},
 	icons: {
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 		shortcut: "/favicon-16x16.png",
 		apple: "/apple-touch-icon.png",
 	},
-	manifest: env.APP_URL + "/site.webmanifest",
+	manifest: env.NEXT_APP_URL + "/site.webmanifest",
 };
 
 export default function RootLayout({
