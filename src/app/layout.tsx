@@ -4,7 +4,6 @@ import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import ProgressBarProvider from "@/components/progress-bar";
 import { env } from "@/env";
-import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -84,7 +83,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
-			<Analytics />
 			<html lang="en" suppressHydrationWarning>
 				<head>
 					<script
