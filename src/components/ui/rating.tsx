@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import { VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
+import { Label } from "@/components/ui/label";
 
 export const starRatingVariants = cva("flex gap-x-1.5", {
 	variants: {
@@ -100,7 +101,7 @@ const StarRating = ({
 							onChange={() => handleStarClick(starValue)}
 							className="hidden"
 						/>
-						<label
+						<Label
 							htmlFor={starId}
 							className={cn(
 								"cursor-pointer",
@@ -114,7 +115,7 @@ const StarRating = ({
 								}
 							}}>
 							<Icon className="transition-colors duration-200" />
-						</label>
+						</Label>
 					</div>
 				);
 			})}
