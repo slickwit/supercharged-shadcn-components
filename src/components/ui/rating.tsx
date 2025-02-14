@@ -15,7 +15,11 @@ export const starRatingVariants = cva("flex gap-x-1.5", {
 		color: {
 			default: "[&_.selected-star>svg]:text-yellow-500 [&_.selected-star>svg]:fill-current",
 			primary: "[&_.selected-star>svg]:text-primary [&_.selected-star>svg]:fill-primary",
+			secondary: "[&_.selected-star>svg]:text-secondary [&_.selected-star>svg]:fill-secondary",
+			success: "[&_.selected-star>svg]:text-success [&_.selected-star>svg]:fill-success",
+			info: "[&_.selected-star>svg]:text-info [&_.selected-star>svg]:fill-info",
 			warning: "[&_.selected-star>svg]:text-warning [&_.selected-star>svg]:fill-warning",
+			error: "[&_.selected-star>svg]:text-error [&_.selected-star>svg]:fill-error",
 		},
 	},
 	defaultVariants: {
@@ -114,7 +118,7 @@ const StarRating = ({
 									handleStarClick(0);
 								}
 							}}>
-							<Icon className="transition-colors duration-200" />
+							<Icon className="transition-colors duration-300" />
 						</Label>
 					</div>
 				);
