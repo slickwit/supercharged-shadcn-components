@@ -18,7 +18,7 @@ export default function RatingDemo() {
 				</div>
 				<div>
 					<CardHeader>
-						<CardTitle>Default (Hover Select)</CardTitle>
+						<CardTitle>Select on Hover</CardTitle>
 					</CardHeader>
 					<CardContent>
 						<Rating defaultSelected={0} totalStars={5} hoverable selectOnHover />
@@ -26,7 +26,7 @@ export default function RatingDemo() {
 				</div>
 				<div>
 					<CardHeader>
-						<CardTitle>Default (Not Hoverable)</CardTitle>
+						<CardTitle>Not Hoverable</CardTitle>
 					</CardHeader>
 					<CardContent>
 						<Rating defaultSelected={0} totalStars={5} hoverable={false} />
@@ -47,7 +47,7 @@ export default function RatingDemo() {
 						<CardTitle>Primary</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<Rating color="primary" defaultSelected={2} totalStars={5} />
+						<Rating color="primary" defaultSelected={1} totalStars={5} />
 					</CardContent>
 				</div>
 				<div>
@@ -63,7 +63,7 @@ export default function RatingDemo() {
 						<CardTitle>Success</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<Rating color="success" defaultSelected={2} totalStars={5} />
+						<Rating color="success" defaultSelected={3} totalStars={5} />
 					</CardContent>
 				</div>
 				<div>
@@ -71,7 +71,7 @@ export default function RatingDemo() {
 						<CardTitle>Info</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<Rating color="info" defaultSelected={2} totalStars={5} />
+						<Rating color="info" defaultSelected={4} totalStars={5} />
 					</CardContent>
 				</div>
 				<div>
@@ -79,7 +79,7 @@ export default function RatingDemo() {
 						<CardTitle>Warning</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<Rating color="warning" defaultSelected={2} totalStars={5} />
+						<Rating color="warning" defaultSelected={5} totalStars={5} />
 					</CardContent>
 				</div>
 				<div>
@@ -87,7 +87,7 @@ export default function RatingDemo() {
 						<CardTitle>Error</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<Rating color="error" defaultSelected={2} totalStars={5} />
+						<Rating color="error" defaultSelected={3} totalStars={5} />
 					</CardContent>
 				</div>
 			</Card>
