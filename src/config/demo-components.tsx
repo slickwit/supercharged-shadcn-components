@@ -33,6 +33,14 @@ export const demoComponents: Record<string, any> = {
 		})),
 		path: "src/components/ui/chip.tsx",
 	},
+	"rating-demo": {
+		component: lazy(() => import("@/components/demo/rating")),
+		path: "src/components/demo/rating.tsx",
+	},
+	rating: {
+		component: lazy(async () => import("@/components/ui/rating")),
+		path: "src/components/ui/rating.tsx",
+	},
 	"floating-button-demo": {
 		component: lazy(() => import("@/components/demo/floating-button")),
 		path: "src/components/demo/floating-button.tsx",

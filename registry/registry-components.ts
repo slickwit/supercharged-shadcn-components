@@ -24,6 +24,12 @@ export const ui: Registry = [
 		files: ["ui/chip.tsx"],
 	},
 	{
+		name: "rating",
+		type: "registry:ui",
+		registryDependencies: ["label"],
+		files: ["ui/rating.tsx"],
+	},
+	{
 		name: "autocomplete",
 		type: "registry:ui",
 		registryDependencies: ["popover"],

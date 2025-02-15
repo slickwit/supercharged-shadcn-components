@@ -11,6 +11,7 @@ const ICONS = {
 	inputs: icon("inputs"),
 	form: icon("form"),
 	upload: icon("upload"),
+	rating: icon("rating"),
 };
 
 export type TItems = {
@@ -71,6 +72,12 @@ export const useNavData = () => {
 						name: "chip",
 						url: "/docs/components/chip",
 						icon: ICONS.chip,
+					},
+					{
+						title: "Rating",
+						name: "rating",
+						url: "/docs/components/rating",
+						icon: ICONS.rating,
 						new: true,
 					},
 					{
