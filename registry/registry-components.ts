@@ -127,13 +127,15 @@ export const ui: Registry = [
 			"ui/file-thumbnail/download-button.tsx",
 			// lib dependencies
 			"lib/format-number.ts",
+			// animate
+			"ui/animate/variants/fade",
 		],
 	},
 	// HOOK FORM
 	{
 		name: "form-provider",
 		type: "registry:ui",
-		dependencies: ["react-hook-form"],
+		dependencies: ["react-hook-form", "zod", "@hookform/resolvers"],
 		files: ["ui/hook-form/form-provider.tsx", "ui/hook-form/index.tsx"],
 	},
 	{
@@ -302,6 +304,8 @@ export const ui: Registry = [
 			"ui/file-thumbnail/download-button.tsx",
 			// lib dependencies
 			"lib/format-number.ts",
+			// animate
+			"ui/animate/variants/fade",
 		],
 	},
 	{
@@ -329,6 +333,8 @@ export const ui: Registry = [
 			"ui/file-thumbnail/download-button.tsx",
 			// lib dependencies
 			"lib/format-number.ts",
+			// animate
+			"ui/animate/variants/fade",
 		],
 	},
 ];
