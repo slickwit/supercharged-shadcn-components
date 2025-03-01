@@ -129,6 +129,7 @@ export const ui: Registry = [
 			"lib/format-number.ts",
 			// animate
 			"ui/animate/variants/fade.ts",
+			"ui/animate/variants/transition.ts",
 		],
 	},
 	// HOOK FORM
@@ -306,6 +307,7 @@ export const ui: Registry = [
 			"lib/format-number.ts",
 			// animate
 			"ui/animate/variants/fade.ts",
+			"ui/animate/variants/transition.ts",
 		],
 	},
 	{
@@ -335,6 +337,7 @@ export const ui: Registry = [
 			"lib/format-number.ts",
 			// animate
 			"ui/animate/variants/fade.ts",
+			"ui/animate/variants/transition.ts",
 		],
 	},
 ];
