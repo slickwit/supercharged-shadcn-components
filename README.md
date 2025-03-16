@@ -1,8 +1,4 @@
-## 🚧 Temporary Downtime: Vercel Free Tier Limit Reached 🚧
-
-## Temporary URL [https://master.d3nkppob0zm4s6.amplifyapp.com/](https://master.d3nkppob0zm4s6.amplifyapp.com/)
-
-# [Supercharged Shadcn Components](https://supercharged-shadcn-components.kennethryandy.dev)
+# [Supercharged Shadcn Components]([https://supercharged-shadcn-components.kennethryandy.dev](https://supercharged-shadcn-components.dykennethryan.com/))
 
 ## Why Supercharged Shadcn Components?
 
