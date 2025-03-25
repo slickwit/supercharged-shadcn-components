@@ -1,4 +1,4 @@
-# [Supercharged Shadcn Components]([https://supercharged-shadcn-components.kennethryandy.dev](https://supercharged-shadcn-components.dykennethryan.com/))
+# [Supercharged Shadcn Components](https://supercharged-shadcn-components.dykennethryan.com/)
 
 ## Why Supercharged Shadcn Components?
 
